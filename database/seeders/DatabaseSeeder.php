@@ -255,7 +255,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Indication::create([
-            'nama_gejala' => 'Pilek Tidak Kuncung Membaik',
+            'nama_gejala' => 'Pilek Tidak Kunjung Membaik',
         ]);
 
         Indication::create([
@@ -428,404 +428,64 @@ class DatabaseSeeder extends Seeder
         // Rule::create(['kode_penyakit' => 'P09', 'kode_gejala' => 'G31', 'cf_pakar' => 0.5, 'mb_pakar' => 0.6, 'md_pakar' => 0.1]);
         // Rule::create(['kode_penyakit' => 'P09', 'kode_gejala' => 'G12', 'cf_pakar' => 0.6, 'mb_pakar' => 0.7, 'md_pakar' => 0.1]);
 
-        Rule::create([
-            'kode_penyakit' => 'P01',
-            'kode_gejala' => 'G01',
-            'cf_pakar' => 0.5,
-            'mb_pakar' => 0.6,
-            'md_pakar' => 0.1
-        ]);
+        Rule::create(['kode_penyakit' => 'P01', 'kode_gejala' => 'G01', 'cf_pakar' => 0.5, 'mb_pakar' => 0.6, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P01', 'kode_gejala' => 'G02', 'cf_pakar' => 0.4, 'mb_pakar' => 0.5, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P01', 'kode_gejala' => 'G03', 'cf_pakar' => 0.8, 'mb_pakar' => 0.8, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P01', 'kode_gejala' => 'G04', 'cf_pakar' => 0.7, 'mb_pakar' => 0.8, 'md_pakar' => 0.1]);
 
-        Rule::create([
-            'kode_penyakit' => 'P01',
-            'kode_gejala' => 'G02',
-            'cf_pakar' => 0.4,
-            'mb_pakar' => 0.5,
-            'md_pakar' => 0.1
-        ]);
+        Rule::create(['kode_penyakit' => 'P02', 'kode_gejala' => 'G05', 'cf_pakar' => 0.8, 'mb_pakar' => 0.8, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P02', 'kode_gejala' => 'G06', 'cf_pakar' => 0.8, 'mb_pakar' => 0.8, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P02', 'kode_gejala' => 'G07', 'cf_pakar' => 0.5, 'mb_pakar' => 0.5, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P02', 'kode_gejala' => 'G08', 'cf_pakar' => 0.6, 'mb_pakar' => 0.6, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P02', 'kode_gejala' => 'G09', 'cf_pakar' => 0.9, 'mb_pakar' => 0.9, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P02', 'kode_gejala' => 'G10', 'cf_pakar' => 0.8, 'mb_pakar' => 0.8, 'md_pakar' => 0.0]);
 
-        Rule::create([
-            'kode_penyakit' => 'P01',
-            'kode_gejala' => 'G03',
-            'cf_pakar' => 0.8,
-            'mb_pakar' => 0.8,
-            'md_pakar' => 0.0
-        ]);
+        Rule::create(['kode_penyakit' => 'P03', 'kode_gejala' => 'G01', 'cf_pakar' => 0.6, 'mb_pakar' => 0.7, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P03', 'kode_gejala' => 'G11', 'cf_pakar' => 0.4, 'mb_pakar' => 0.5, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P03', 'kode_gejala' => 'G12', 'cf_pakar' => 0.7, 'mb_pakar' => 0.8, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P03', 'kode_gejala' => 'G13', 'cf_pakar' => 0.6, 'mb_pakar' => 0.7, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P03', 'kode_gejala' => 'G17', 'cf_pakar' => 0.4, 'mb_pakar' => 0.5, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P03', 'kode_gejala' => 'G18', 'cf_pakar' => 0.5, 'mb_pakar' => 0.5, 'md_pakar' => 0.0]);
 
-        Rule::create([
-            'kode_penyakit' => 'P01',
-            'kode_gejala' => 'G04',
-            'cf_pakar' => 0.7,
-            'mb_pakar' => 0.8,
-            'md_pakar' => 0.1
-        ]);
+        Rule::create(['kode_penyakit' => 'P04', 'kode_gejala' => 'G14', 'cf_pakar' => 0.6, 'mb_pakar' => 0.7, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P04', 'kode_gejala' => 'G15', 'cf_pakar' => 0.5, 'mb_pakar' => 0.6, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P04', 'kode_gejala' => 'G16', 'cf_pakar' => 0.4, 'mb_pakar' => 0.5, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P04', 'kode_gejala' => 'G17', 'cf_pakar' => 0.2, 'mb_pakar' => 0.3, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P04', 'kode_gejala' => 'G25', 'cf_pakar' => 0.5, 'mb_pakar' => 0.5, 'md_pakar' => 0.0]);
 
-        Rule::create([
-            'kode_penyakit' => 'P02',
-            'kode_gejala' => 'G05',
-            'cf_pakar' => 0.8,
-            'mb_pakar' => 0.8,
-            'md_pakar' => 0.0
-        ]);
+        Rule::create(['kode_penyakit' => 'P05', 'kode_gejala' => 'G14', 'cf_pakar' => 0.5, 'mb_pakar' => 0.6, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P05', 'kode_gejala' => 'G17', 'cf_pakar' => 0.4, 'mb_pakar' => 0.5, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P05', 'kode_gejala' => 'G19', 'cf_pakar' => 0.8, 'mb_pakar' => 0.8, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P05', 'kode_gejala' => 'G20', 'cf_pakar' => 0.3, 'mb_pakar' => 0.4, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P05', 'kode_gejala' => 'G21', 'cf_pakar' => 0.3, 'mb_pakar' => 0.4, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P05', 'kode_gejala' => 'G25', 'cf_pakar' => 0.7, 'mb_pakar' => 0.8, 'md_pakar' => 0.1]);
 
-        Rule::create([
-            'kode_penyakit' => 'P02',
-            'kode_gejala' => 'G06',
-            'cf_pakar' => 0.8,
-            'mb_pakar' => 0.8,
-            'md_pakar' => 0.0
-        ]);
+        Rule::create(['kode_penyakit' => 'P06', 'kode_gejala' => 'G02', 'cf_pakar' => 0.4, 'mb_pakar' => 0.5, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P06', 'kode_gejala' => 'G04', 'cf_pakar' => 0.4, 'mb_pakar' => 0.5, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P06', 'kode_gejala' => 'G13', 'cf_pakar' => 0.5, 'mb_pakar' => 0.6, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P06', 'kode_gejala' => 'G17', 'cf_pakar' => 0.5, 'mb_pakar' => 0.6, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P06', 'kode_gejala' => 'G22', 'cf_pakar' => 0.3, 'mb_pakar' => 0.4, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P06', 'kode_gejala' => 'G23', 'cf_pakar' => 0.7, 'mb_pakar' => 0.8, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P06', 'kode_gejala' => 'G24', 'cf_pakar' => 0.6, 'mb_pakar' => 0.7, 'md_pakar' => 0.1]);
 
-        Rule::create([
-            'kode_penyakit' => 'P02',
-            'kode_gejala' => 'G07',
-            'cf_pakar' => 0.5,
-            'mb_pakar' => 0.5,
-            'md_pakar' => 0.0
-        ]);
+        Rule::create(['kode_penyakit' => 'P07', 'kode_gejala' => 'G05', 'cf_pakar' => 0.5, 'mb_pakar' => 0.6, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P07', 'kode_gejala' => 'G17', 'cf_pakar' => 0.5, 'mb_pakar' => 0.6, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P07', 'kode_gejala' => 'G26', 'cf_pakar' => 0.7, 'mb_pakar' => 0.7, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P07', 'kode_gejala' => 'G27', 'cf_pakar' => 0.8, 'mb_pakar' => 0.8, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P07', 'kode_gejala' => 'G28', 'cf_pakar' => 1.0, 'mb_pakar' => 1.0, 'md_pakar' => 0.0]);
 
-        Rule::create([
-            'kode_penyakit' => 'P02',
-            'kode_gejala' => 'G08',
-            'cf_pakar' => 0.6,
-            'mb_pakar' => 0.6,
-            'md_pakar' => 0.0
-        ]);
+        Rule::create(['kode_penyakit' => 'P08', 'kode_gejala' => 'G17', 'cf_pakar' => 0.6, 'mb_pakar' => 0.6, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P08', 'kode_gejala' => 'G26', 'cf_pakar' => 0.8, 'mb_pakar' => 0.8, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P08', 'kode_gejala' => 'G29', 'cf_pakar' => 0.8, 'mb_pakar' => 0.8, 'md_pakar' => 0.0]);
 
-        Rule::create([
-            'kode_penyakit' => 'P02',
-            'kode_gejala' => 'G09',
-            'cf_pakar' => 0.9,
-            'mb_pakar' => 0.9,
-            'md_pakar' => 0.0
-        ]);
+        Rule::create(['kode_penyakit' => 'P09', 'kode_gejala' => 'G17', 'cf_pakar' => 0.5, 'mb_pakar' => 0.6, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P09', 'kode_gejala' => 'G18', 'cf_pakar' => 0.5, 'mb_pakar' => 0.6, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P09', 'kode_gejala' => 'G30', 'cf_pakar' => 1.0, 'mb_pakar' => 1.0, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P09', 'kode_gejala' => 'G26', 'cf_pakar' => 0.7, 'mb_pakar' => 0.7, 'md_pakar' => 0.0]);
 
-        Rule::create([
-            'kode_penyakit' => 'P02',
-            'kode_gejala' => 'G10',
-            'cf_pakar' => 0.8,
-            'mb_pakar' => 0.8,
-            'md_pakar' => 0.0
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P03',
-            'kode_gejala' => 'G01',
-            'cf_pakar' => 0.6,
-            'mb_pakar' => 0.7,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P03',
-            'kode_gejala' => 'G11',
-            'cf_pakar' => 0.4,
-            'mb_pakar' => 0.5,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P03',
-            'kode_gejala' => 'G12',
-            'cf_pakar' => 0.8,
-            'mb_pakar' => 0.8,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P03',
-            'kode_gejala' => 'G13',
-            'cf_pakar' => 0.6,
-            'mb_pakar' => 0.7,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P03',
-            'kode_gejala' => 'G17',
-            'cf_pakar' => 0.4,
-            'mb_pakar' => 0.5,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P03',
-            'kode_gejala' => 'G18',
-            'cf_pakar' => 0.5,
-            'mb_pakar' => 0.5,
-            'md_pakar' => 0.0
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P04',
-            'kode_gejala' => 'G14',
-            'cf_pakar' => 0.6,
-            'mb_pakar' => 0.7,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P04',
-            'kode_gejala' => 'G15',
-            'cf_pakar' => 0.6,
-            'mb_pakar' => 0.6,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P04',
-            'kode_gejala' => 'G16',
-            'cf_pakar' => 0.4,
-            'mb_pakar' => 0.5,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P04',
-            'kode_gejala' => 'G17',
-            'cf_pakar' => 0.2,
-            'mb_pakar' => 0.3,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P04',
-            'kode_gejala' => 'G25',
-            'cf_pakar' => 0.5,
-            'mb_pakar' => 0.5,
-            'md_pakar' => 0.0
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P05',
-            'kode_gejala' => 'G14',
-            'cf_pakar' => 0.5,
-            'mb_pakar' => 0.6,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P05',
-            'kode_gejala' => 'G17',
-            'cf_pakar' => 0.4,
-            'mb_pakar' => 0.5,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P05',
-            'kode_gejala' => 'G19',
-            'cf_pakar' => 0.8,
-            'mb_pakar' => 0.8,
-            'md_pakar' => 0.0
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P05',
-            'kode_gejala' => 'G20',
-            'cf_pakar' => 0.3,
-            'mb_pakar' => 0.4,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P05',
-            'kode_gejala' => 'G21',
-            'cf_pakar' => 0.3,
-            'mb_pakar' => 0.4,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P05',
-            'kode_gejala' => 'G25',
-            'cf_pakar' => 0.7,
-            'mb_pakar' => 0.8,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P06',
-            'kode_gejala' => 'G22',
-            'cf_pakar' => 0.3,
-            'mb_pakar' => 0.4,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P06',
-            'kode_gejala' => 'G23',
-            'cf_pakar' => 0.7,
-            'mb_pakar' => 0.8,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P06',
-            'kode_gejala' => 'G24',
-            'cf_pakar' => 0.6,
-            'mb_pakar' => 0.7,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P06',
-            'kode_gejala' => 'G04',
-            'cf_pakar' => 0.4,
-            'mb_pakar' => 0.5,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P06',
-            'kode_gejala' => 'G02',
-            'cf_pakar' => 0.4,
-            'mb_pakar' => 0.5,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P06',
-            'kode_gejala' => 'G17',
-            'cf_pakar' => 0.5,
-            'mb_pakar' => 0.6,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P06',
-            'kode_gejala' => 'G13',
-            'cf_pakar' => 0.5,
-            'mb_pakar' => 0.6,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P07',
-            'kode_gejala' => 'G17',
-            'cf_pakar' => 0.5,
-            'mb_pakar' => 0.6,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P07',
-            'kode_gejala' => 'G26',
-            'cf_pakar' => 0.7,
-            'mb_pakar' => 0.7,
-            'md_pakar' => 0.0
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P07',
-            'kode_gejala' => 'G05',
-            'cf_pakar' => 0.5,
-            'mb_pakar' => 0.6,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P07',
-            'kode_gejala' => 'G27',
-            'cf_pakar' => 0.8,
-            'mb_pakar' => 0.8,
-            'md_pakar' => 0.0
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P07',
-            'kode_gejala' => 'G28',
-            'cf_pakar' => 1.0,
-            'mb_pakar' => 1.0,
-            'md_pakar' => 0.0
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P08',
-            'kode_gejala' => 'G17',
-            'cf_pakar' => 0.6,
-            'mb_pakar' => 0.6,
-            'md_pakar' => 0.0
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P08',
-            'kode_gejala' => 'G26',
-            'cf_pakar' => 0.8,
-            'mb_pakar' => 0.8,
-            'md_pakar' => 0.0
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P08',
-            'kode_gejala' => 'G29',
-            'cf_pakar' => 0.8,
-            'mb_pakar' => 0.8,
-            'md_pakar' => 0.0
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P09',
-            'kode_gejala' => 'G17',
-            'cf_pakar' => 0.5,
-            'mb_pakar' => 0.6,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P09',
-            'kode_gejala' => 'G18',
-            'cf_pakar' => 0.5,
-            'mb_pakar' => 0.6,
-            'md_pakar' => 0.1
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P09',
-            'kode_gejala' => 'G30',
-            'cf_pakar' => 1.0,
-            'mb_pakar' => 1.0,
-            'md_pakar' => 0.0
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P09',
-            'kode_gejala' => 'G26',
-            'cf_pakar' => 0.7,
-            'mb_pakar' => 0.7,
-            'md_pakar' => 0.0
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P10',
-            'kode_gejala' => 'G18',
-            'cf_pakar' => 0.6,
-            'mb_pakar' => 0.6,
-            'md_pakar' => 0.0
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P10',
-            'kode_gejala' => 'G25',
-            'cf_pakar' => 0.7,
-            'mb_pakar' => 0.7,
-            'md_pakar' => 0.0
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P10',
-            'kode_gejala' => 'G31',
-            'cf_pakar' => 0.9,
-            'mb_pakar' => 0.9,
-            'md_pakar' => 0.0
-        ]);
-
-        Rule::create([
-            'kode_penyakit' => 'P10',
-            'kode_gejala' => 'G32',
-            'cf_pakar' => 0.6,
-            'mb_pakar' => 0.6,
-            'md_pakar' => 0.0
-        ]);
+        Rule::create(['kode_penyakit' => 'P10', 'kode_gejala' => 'G18', 'cf_pakar' => 0.6, 'mb_pakar' => 0.6, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P10', 'kode_gejala' => 'G25', 'cf_pakar' => 0.7, 'mb_pakar' => 0.7, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P10', 'kode_gejala' => 'G31', 'cf_pakar' => 0.9, 'mb_pakar' => 0.9, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P10', 'kode_gejala' => 'G32', 'cf_pakar' => 0.6, 'mb_pakar' => 0.6, 'md_pakar' => 0.0]);
     }
 }
