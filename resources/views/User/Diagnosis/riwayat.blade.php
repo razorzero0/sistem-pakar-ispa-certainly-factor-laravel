@@ -55,10 +55,12 @@
                     <tr>
                         <th scope="col" style="width: 3rem">No</th>
                         <th scope="col">Tanggal diagnosa</th>
-                        <th scope="col">Kode Penyakit</th>
-                        <th scope="col">Nama Penyakit</th>
+                        <th scope="col">Nama Pengguna</th>
+                        <th scope="col">Diagnosa Penyakit</th>
                         <th scope="col">Nilai Keyakinan</th>
+                        <th scope="col">Detail</th>
                         <th scope="col">Aksi</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -67,7 +69,7 @@
                         <tr>
                             <th scope="row">{{ $i++ }}</th>
                             <td>{{ $diagnosis->created_at }}</td>
-                            <td>{{ $diagnosis->kode_penyakit }}</td>
+                            <td>{{ $diagnosis->nama_pengguna }}</td>
                             <td>{{ $diagnosis->desease->nama_penyakit }}</td>
                             <td>{{ number_format($diagnosis->nilai_akhir, 1) . '%' }}</td>
                             <td>
@@ -75,6 +77,21 @@
                                     <i class="bi bi-eye-fill"></i>
                                 </a>
 
+                            </td>
+                            <td>
+                                <div class="d-flex flex-wrap" style="gap:5px;">
+
+
+                                    <form method="POST" action={{ route('diagnosis.destroy', $diagnosis->diagnosis_id) }}>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button onclick="return confirm('apakah yakin?')" type="submit"
+                                            class="btn btn-danger text-white ">
+                                            <i class="bi bi-trash"></i> Hapus
+                                        </button>
+                                    </form>
+
+                                </div>
                             </td>
 
                         </tr>
@@ -85,7 +102,7 @@
         </div>
 
         <div class="pd-20 card-box  " style="margin-top: -1.2rem">
-            <h4 class="h4 text-secondary text-center mb-4 ">Persentase jumlah penyakit yang telah didiagnosa</h4>
+            <h4 class="h4 text-secondary text-center mb-4 ">Persentase jumlah penyakit yang telah ter-diagnosa</h4>
             <div class="d-flex justify-content-center">
 
                 <div id="chart8"></div>

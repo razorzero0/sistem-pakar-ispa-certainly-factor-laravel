@@ -81,9 +81,11 @@ class DiagnosisController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Diagnosis $diagnosis)
+    public function destroy($id)
     {
-        //
+
+        $this->service->destroy($id);
+        return redirect(route('riwayat-diagnosis'))->with(['success' => 'Hapus Berhasil']);
     }
     public function deleteAll()
     {

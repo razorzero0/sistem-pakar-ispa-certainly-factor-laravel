@@ -53,61 +53,61 @@ class DatabaseSeeder extends Seeder
         Desease::create([
             'nama_penyakit' => 'Croup',
             'detail_penyakit' => 'Croup',
-            'solusi_penyakit' => 'Croup',
+            // 'solusi_penyakit' => 'Croup',
         ]);
 
         Desease::create([
             'nama_penyakit' => 'Sinusitis Akut',
             'detail_penyakit' => 'Sinusitis Akut',
-            'solusi_penyakit' => 'Sinusitis Akut',
+            // 'solusi_penyakit' => 'Sinusitis Akut',
         ]);
 
         Desease::create([
             'nama_penyakit' => 'Pertusis (Batuk Rejan)',
             'detail_penyakit' => 'Pertusis (Batuk Rejan)',
-            'solusi_penyakit' => 'Pertusis (Batuk Rejan)',
+            // 'solusi_penyakit' => 'Pertusis (Batuk Rejan)',
         ]);
 
         Desease::create([
             'nama_penyakit' => 'Bronchitis',
             'detail_penyakit' => 'Bronchitis',
-            'solusi_penyakit' => 'Bronchitis',
+            // 'solusi_penyakit' => 'Bronchitis',
         ]);
 
         Desease::create([
             'nama_penyakit' => 'Pneumonia',
             'detail_penyakit' => 'Pneumonia',
-            'solusi_penyakit' => 'Pneumonia',
+            // 'solusi_penyakit' => 'Pneumonia',
         ]);
 
         Desease::create([
             'nama_penyakit' => 'Epiglotitis',
             'detail_penyakit' => 'Epiglotitis',
-            'solusi_penyakit' => 'Epiglotitis',
+            // 'solusi_penyakit' => 'Epiglotitis',
         ]);
 
         Desease::create([
             'nama_penyakit' => 'Tonsilitis Akut',
             'detail_penyakit' => 'Tonsilitis Akut',
-            'solusi_penyakit' => 'Tonsilitis Akut',
+            // 'solusi_penyakit' => 'Tonsilitis Akut',
         ]);
 
         Desease::create([
             'nama_penyakit' => 'Faringitis (Radang Tenggorokan)',
             'detail_penyakit' => 'Faringitis (Radang Tenggorokan)',
-            'solusi_penyakit' => 'Faringitis (Radang Tenggorokan)',
+            // 'solusi_penyakit' => 'Faringitis (Radang Tenggorokan)',
         ]);
 
         Desease::create([
             'nama_penyakit' => 'Laringitis Akut',
             'detail_penyakit' => 'Laringitis Akut',
-            'solusi_penyakit' => 'Laringitis Akut',
+            // 'solusi_penyakit' => 'Laringitis Akut',
         ]);
 
         Desease::create([
             'nama_penyakit' => 'Asma',
             'detail_penyakit' => 'Asma',
-            'solusi_penyakit' => 'Asma',
+            // 'solusi_penyakit' => 'Asma',
         ]);
 
         // Indication::create([
@@ -480,8 +480,8 @@ class DatabaseSeeder extends Seeder
 
         Rule::create(['kode_penyakit' => 'P09', 'kode_gejala' => 'G17', 'cf_pakar' => 0.5, 'mb_pakar' => 0.6, 'md_pakar' => 0.1]);
         Rule::create(['kode_penyakit' => 'P09', 'kode_gejala' => 'G18', 'cf_pakar' => 0.5, 'mb_pakar' => 0.6, 'md_pakar' => 0.1]);
-        Rule::create(['kode_penyakit' => 'P09', 'kode_gejala' => 'G30', 'cf_pakar' => 1.0, 'mb_pakar' => 1.0, 'md_pakar' => 0.0]);
         Rule::create(['kode_penyakit' => 'P09', 'kode_gejala' => 'G26', 'cf_pakar' => 0.7, 'mb_pakar' => 0.7, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P09', 'kode_gejala' => 'G30', 'cf_pakar' => 1.0, 'mb_pakar' => 1.0, 'md_pakar' => 0.0]);
 
         Rule::create(['kode_penyakit' => 'P10', 'kode_gejala' => 'G18', 'cf_pakar' => 0.6, 'mb_pakar' => 0.6, 'md_pakar' => 0.0]);
         Rule::create(['kode_penyakit' => 'P10', 'kode_gejala' => 'G25', 'cf_pakar' => 0.7, 'mb_pakar' => 0.7, 'md_pakar' => 0.0]);

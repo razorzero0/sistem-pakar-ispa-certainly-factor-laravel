@@ -165,7 +165,7 @@
 
         </table>
 
-        {{-- <hr class="solid">
+        <hr class="solid">
 
         <p>Berdasarkan gejala dan kondisi yang dipilih, kemungkinan anda mengalami :
         </p>
@@ -188,11 +188,11 @@
                 </th>
             </tr>
             <tr class="service">
-                <td style="padding: 1em" class="tableitem">{!! $data->desease->detail_penyakit !!}</td>
+                <td style="padding: 1em" style="text-align: left" class="tableitem">{!! $data->desease->detail_penyakit !!}</td>
             </tr>
 
         </table>
-        <table class="tb-gejala">
+        {{-- <table class="tb-gejala">
             <tr class="tabletitle">
                 <th>
                     <h2>Solusi Penyakit {{ $data->desease->nama_penyakit }}</h2>
@@ -203,7 +203,7 @@
             </tr>
         </table> --}}
         <hr class="solid">
-        <p>Adapun kemungkinan penyakit yang mungkin anda alami :
+        <p>Adapun penyakit lain yang mungkin anda alami :
         </p>
         <table class="tb-gejala">
             <tr class="tabletitle">
@@ -213,20 +213,20 @@
                 <th class="Hours">
                     <h2>Nama Penyakit</h2>
                 </th>
-                {{-- <th class="Rate">
+                <th class="Rate">
                     <h2>Nilai Keyakinan</h2>
-                </th> --}}
+                </th>
             </tr>
             <?php $i = 1; ?>
             @foreach (json_decode($data->hasil) as $penyakit)
-                {{-- @if ($penyakit->kode_penyakit !== $data->desease->kode_penyakit && $penyakit->nilai > 0) --}}
-                <tr class="service">
-                    <td class="tableitem">{{ $i++ }}</td>
-                    <td class="tableitem">{{ $penyakit->nama_penyakit }}</td>
-                    {{-- <td class="tableitem">{{ number_format($penyakit->nilai, 2) . '%' }}</td> --}}
+                @if ($penyakit->kode_penyakit !== $data->desease->kode_penyakit && $penyakit->nilai > 0)
+                    <tr class="service">
+                        <td class="tableitem">{{ $i++ }}</td>
+                        <td class="tableitem">{{ $penyakit->nama_penyakit }}</td>
+                        <td class="tableitem">{{ number_format($penyakit->nilai, 2) . '%' }}</td>
 
-                </tr>
-                {{-- @endif --}}
+                    </tr>
+                @endif
             @endforeach
 
 

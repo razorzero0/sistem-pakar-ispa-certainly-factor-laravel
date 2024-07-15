@@ -14,16 +14,27 @@ class  DiagnosisService implements BaseService
 
     public function __construct(private RuleRepository $rule, private IndicationRepository $gejala, private DiagnosisRepository $model)
     {
+        // $this->term = collect([
+        //     ['nilai' => 1.0, 'deskripsi' => 'Pasti Ya'],
+        //     ['nilai' => 0.8, 'deskripsi' => 'Hampir Pasti Ya'],
+        //     ['nilai' => 0.6, 'deskripsi' => 'Kemungkinan Besar Ya'],
+        //     ['nilai' => 0.4, 'deskripsi' => 'Mungkin Ya'],
+        //     ['nilai' => -0.2, 'deskripsi' => 'Tidak Tahu'],
+        //     ['nilai' => -0.4, 'deskripsi' => 'Mungkin Tidak'],
+        //     ['nilai' => -0.6, 'deskripsi' => 'Kemungkinan Besar Tidak'],
+        //     ['nilai' => -0.8, 'deskripsi' => 'Hampir Pasti Tidak'],
+        //     ['nilai' => -1.0, 'deskripsi' => 'Pasti Tidak'],
+        // ]);
         $this->term = collect([
-            ['nilai' => 1.0, 'deskripsi' => 'Pasti Ya'],
-            ['nilai' => 0.8, 'deskripsi' => 'Hampir Pasti Ya'],
-            ['nilai' => 0.6, 'deskripsi' => 'Kemungkinan Besar Ya'],
-            ['nilai' => 0.4, 'deskripsi' => 'Mungkin Ya'],
+            ['nilai' => 1.0, 'deskripsi' => 'Sangat Sering / Selalu'],
+            ['nilai' => 0.8, 'deskripsi' => 'Hampir Selalu'],
+            ['nilai' => 0.6, 'deskripsi' => 'Sering'],
+            ['nilai' => 0.4, 'deskripsi' => 'Kadang-kadang'],
             ['nilai' => -0.2, 'deskripsi' => 'Tidak Tahu'],
-            ['nilai' => -0.4, 'deskripsi' => 'Mungkin Tidak'],
-            ['nilai' => -0.6, 'deskripsi' => 'Kemungkinan Besar Tidak'],
-            ['nilai' => -0.8, 'deskripsi' => 'Hampir Pasti Tidak'],
-            ['nilai' => -1.0, 'deskripsi' => 'Pasti Tidak'],
+            ['nilai' => -0.4, 'deskripsi' => 'Hampir Jarang'],
+            ['nilai' => -0.6, 'deskripsi' => 'Jarang'],
+            ['nilai' => -0.8, 'deskripsi' => 'Hampir Tidak Pernah'],
+            ['nilai' => -1.0, 'deskripsi' => 'Tidak Pernah'],
         ]);
     }
 

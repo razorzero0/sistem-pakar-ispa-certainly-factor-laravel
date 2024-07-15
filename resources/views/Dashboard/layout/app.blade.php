@@ -4,7 +4,7 @@
 <head>
     <!-- Basic Page Info -->
     <meta charset="utf-8" />
-    <title>Sistem Pakar ISPA (Infeksi Saluran Pernapasan Akut)</title>
+    <title>Sistem Pendukung Keputusan ISPA (Infeksi Saluran Pernapasan Akut)</title>
 
     <!-- Site favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href={{ asset('assets/vendors/images/favicon.png') }} />

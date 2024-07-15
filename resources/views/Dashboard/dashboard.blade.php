@@ -82,7 +82,8 @@
 
                 </div>
                 <p class="p-3" style="text-align: center;">Tetaplah sehat dan selamat datang di <strong>Aplikasi
-                        Sistem Pakar Diagnosa Penyakit Infeksi Saluran Pernapasan Akut (ISPA)</strong>! Kami hadir untuk
+                        Sistem Pendukung Keputusan Diagnosa Penyakit Infeksi Saluran Pernapasan Akut (ISPA)</strong>! Kami
+                    hadir untuk
                     memberikan bantuan dalam
                     mengidentifikasi dan mengelola penyakit ISPA dengan cepat dan akurat. Mari bersama-sama menjaga
                     kesehatan dan meningkatkan kesadaran kita akan pentingnya pencegahan
@@ -126,8 +127,8 @@
 
         <div class="mb-2
                         footer-wrap pd-20 card-box">
-            Admin Template By
-            <a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
+            Dibuat Oleh
+            <a href="https://github.com/razorzero0" target="_blank">Ainun</a>
         </div>
     </div>
 @endsection

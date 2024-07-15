@@ -45,8 +45,8 @@
                 <tr>
                     <th scope="col" style="width: 1rem">Kode</th>
                     <th>Nama</th>
-                    <th>Detail</th>
-                    <th>Solusi</th>
+                    <th>Penjelasan</th>
+                    {{-- <th>Solusi</th> --}}
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -111,13 +111,13 @@
                             </button>
 
                         </td>
-                        <td>
+                        {{-- <td>
 
                             <button class="badge badge-secondary" data-toggle="modal"
                                 data-target="#solusi{{ $penyakit->kode_penyakit }}">
                                 <i class="bi bi-eye-fill"></i> Tampilkan
                             </button>
-                        </td>
+                        </td> --}}
                         <td>
                             <div class="d-flex flex-wrap" style="gap:5px;">
 

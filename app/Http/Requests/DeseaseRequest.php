@@ -26,14 +26,14 @@ class DeseaseRequest extends FormRequest
                 return [
                     'nama_penyakit' => 'required',
                     'detail_penyakit' => 'required',
-                    'solusi_penyakit' => 'required',
+                    // 'solusi_penyakit' => 'required',
                 ];
                 break;
             case 'PUT':
                 return [
                     'nama_penyakit' => 'required',
                     'detail_penyakit' => 'required',
-                    'solusi_penyakit' => 'required',
+                    // 'solusi_penyakit' => 'required',
                 ];
                 break;
         }

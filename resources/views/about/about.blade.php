@@ -27,7 +27,7 @@
 
         <div class="blog-caption">
             <h4 class="mb-10">
-                Aplikasi Sistem Pakar Diagnosa Penyakit Infeksi Saluran Pernapasan Akut Menggunakan
+                Aplikasi Sistem Pendukung Keputusan Diagnosa Penyakit Infeksi Saluran Pernapasan Akut Menggunakan
                 Certainty Factor
             </h4>
             <p>
@@ -39,18 +39,28 @@
             </p>
 
             <p>
-                <strong>Sistem pakar</strong> adalah sebuah sistem komputer yang dirancang untuk meniru
-                kemampuan penalaran manusia dalam memecahkan masalah tertentu. Mereka memanfaatkan basis
-                pengetahuan yang terstruktur dan aturan-aturan logika untuk menghasilkan solusi atau
-                diagnosis berdasarkan informasi yang diberikan. Dalam konteks aplikasi ini, sistem pakar
-                digunakan untuk menganalisis gejala yang dilaporkan pengguna dan membandingkannya dengan
-                basis pengetahuan yang dimiliki untuk menghasilkan diagnosis ISPA yang akurat.
+                <strong>Sistem Pendukung Keputusan</strong> sebuah sistem informasi terkomputerisasi yang dirancang untuk
+                membantu proses pengambilan keputusan dalam bisnis dan organisasi. SPK bertujuan untuk memanfaatkan data dan
+                model guna mendukung pembuat keputusan dalam mengatasi masalah yang tidak terstruktur. Sistem ini
+                menggabungkan kemampuan komputasi dengan kecerdasan manusia, sehingga mampu memberikan analisis yang lebih
+                mendalam dan rekomendasi yang lebih tepat dalam berbagai situasi pengambilan keputusan. Dengan SPK,
+                organisasi dapat meningkatkan efisiensi dan efektivitas proses pengambilan keputusan mereka, terutama dalam
+                situasi yang kompleks dan tidak pasti
+            </p>
+            <p>
+                Konsep SPK pertama kali diperkenalkan pada awal tahun 1970-an, menandai awal mula ketertarikan yang
+                signifikan dalam penelitian dan penerapannya disegala bidang. Pada tahun 1971, Gorry dan Scott-Morton
+                mengidentifikasi SPK sebagai sistem berbasis komputer yang berinteraksi dengan pembuat keputusan untuk
+                membantu mereka dalam memanfaatkan data dan model guna menyelesaikan masalah yang tidak terstruktur. Pada
+                tahun 1978, Keen dan Scott-Morton memperluas definisi ini dengan menekankan bahwa SPK menggabungkan
+                kecerdasan manusia dengan kemampuan komputer, bertujuan untuk meningkatkan kualitas keputusan yang
+                dihasilkan
             </p>
             <p>
                 <strong>Certainty Factor </strong> menjadi komponen kunci dalam sistem ini, memungkinkan
-                sistem pakar untuk mengukur tingkat kepastian terhadap setiap diagnosis yang diberikan,
+                sistem pendukung keputusan untuk mengukur tingkat kepastian terhadap setiap diagnosis yang diberikan,
                 sehingga memberikan pengguna pemahaman yang lebih jelas tentang kepercayaan pada hasil
-                diagnosis yang diberikan. Dengan demikian, sistem pakar menjadi alat yang sangat berguna
+                diagnosis yang diberikan. Dengan demikian, sistem pendukung keputusan menjadi alat yang sangat berguna
                 dalam mendukung pengambilan keputusan medis yang lebih baik.
             </p>
 

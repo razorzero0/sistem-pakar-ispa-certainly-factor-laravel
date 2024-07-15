@@ -50,20 +50,20 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-12 col-md-2 col-form-label">Detail Penyakit</label>
+                <label class="col-sm-12 col-md-2 col-form-label">Penjelasan Penyakit</label>
                 <div class="col-sm-12 col-md-10">
                     <textarea id="areaDetail" class="form-control" type="text" name="detail_penyakit"></textarea>
 
                 </div>
             </div>
-            <div class="form-group row">
+            {{-- <div class="form-group row">
                 <label class="col-sm-12 col-md-2 col-form-label">Solusi Penyakit</label>
                 <div class="col-sm-12 col-md-10">
                     <textarea name="solusi_penyakit" id="areaSolusi" class="form-control" type="text">
                       </textarea>
 
                 </div>
-            </div>
+            </div> --}}
 
 
             <div class="d-flex flex-row-reverse" style="gap:8px;">

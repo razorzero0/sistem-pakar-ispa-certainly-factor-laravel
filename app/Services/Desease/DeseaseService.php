@@ -21,7 +21,7 @@ class DeseaseService implements BaseService
     {
         $validated  = $request->validated();
         $validated = $request->safe()
-            ->only(['nama_penyakit', 'detail_penyakit', 'solusi_penyakit']);
+            ->only(['nama_penyakit', 'detail_penyakit']);
 
         return $this->model->create($validated);
     }
@@ -34,7 +34,7 @@ class DeseaseService implements BaseService
     {
         $validated  = $request->validated();
         $validated = $request->safe()
-            ->only(['nama_penyakit', 'detail_penyakit', 'solusi_penyakit']);
+            ->only(['nama_penyakit', 'detail_penyakit']);
         return $this->model->update($validated, $id);
     }
     public function destroy($id)

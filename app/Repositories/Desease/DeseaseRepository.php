@@ -32,7 +32,7 @@ class DeseaseRepository implements DeseaseInterface
         $data =  $this->model->find($id);
         $data->nama_penyakit = $request['nama_penyakit'];
         $data->detail_penyakit = $request['detail_penyakit'];
-        $data->solusi_penyakit = $request['solusi_penyakit'];
+        // $data->solusi_penyakit = $request['solusi_penyakit'];
         return  $data->save();
     }
     public function delete($id): int
