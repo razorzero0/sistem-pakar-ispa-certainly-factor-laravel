@@ -60,9 +60,15 @@
                     <input class="form-control" type="email" value="{{ $user->email }}" name="email">
                 </div>
             </div>
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-2 col-form-label">Alamat</label>
+                <div class="col-sm-12 col-md-10">
+                    <input class="form-control" type="" value="{{ $user->address }}" name="address">
+                </div>
+            </div>
 
 
-            <div class="d-flex flex-row-reverse" style="gap:8px;">
+            <div class="flex-row-reverse d-flex" style="gap:8px;">
                 <button class="btn btn-large btn-info " type="submit">Simpan</button>
                 {{-- <a href={{ route('data-admin.index') }} class="btn btn-large btn-dark ">Kembali</a> --}}
             </div>

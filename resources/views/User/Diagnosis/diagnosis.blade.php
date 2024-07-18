@@ -28,7 +28,7 @@
         <div class="pd-20 card-box" style="margin-top: -1.2em;margin-bottom:5rem; ">
             <div class="clearfix mb-12">
                 <div class="pull-left">
-                    <h4 class="text-blue h4">Daftar Gejala</h4>
+                    <h4 class="text-blue h4">Mulai Konsultasi</h4>
                     <p class="text-secondary " style="margin-top: -0.5rem"><small>Pilih kondisi sesuai dengan gejala yang
                             sedang
                             anda
@@ -48,18 +48,19 @@
                     @endforeach
                 </div>
             @endif
-            <div class="form-group row my-3">
+            <div class="my-3 form-group row">
                 <label class=" col-md-2 col-4 col-form-label">Nama :</label>
                 <div class=" col-md-10 col-8">
-                    <input class="form-control" value="{{ Auth::user()->name }}" type="text" name="nama_pengguna"
-                        placeholder="masukkan nama">
+                    <input class="form-control" readonly value="{{ Auth::user()->name }}" type="text"
+                        name="nama_pengguna" placeholder="masukkan nama">
+                    <input hidden value="{{ Auth::user()->id }}" type="text" name="kode_pengguna">
                 </div>
             </div>
-            <div class="form-group row my-3">
+            <div class="my-3 form-group row">
                 <label class=" col-md-2 col-4 col-form-label">Alamat :</label>
                 <div class=" col-md-10 col-8">
-                    <input class="form-control" value="Kediri" type="text" name="alamat_pengguna"
-                        placeholder="masukkan alamat">
+                    <input class="form-control" readonly value="{{ Auth::user()->address }}" type="text"
+                        name="alamat_pengguna" placeholder="masukkan alamat">
                 </div>
             </div>
             <table class="table" id="myTable2">
@@ -95,11 +96,16 @@
             </table>
 
 
-            <div class="my-3 btn-diagnosims" style="gap:8px;">
-                <button type="submit" class="btn btn-lg btn-success text-white ">
-                    <i class="micon bi  bi-clipboard-pulse"></i> Mulai Diagnosis
+            {{-- <div class="my-3 btn-diagnosims" style="gap:8px;">
+                <button type="submit" class="text-white btn btn-lg btn-success ">
+                    <i class="micon bi bi-clipboard-pulse"></i> Mulai Diagnosis
                 </button>
 
+            </div> --}}
+            <div style="position: fixed; bottom: 2em; right: 3em;">
+                <button type="submit" class="p-3 shadow btn btn-lg btn-success rounded-circle">
+                    <i class="bi bi-clipboard-pulse" style="font-size: 3em;"></i>
+                </button>
             </div>
     </form>
 

@@ -50,7 +50,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-12 col-md-2 col-form-label">Penjelasan Penyakit</label>
+                <label class="col-sm-12 col-md-2 col-form-label">Informasi Penyakit</label>
                 <div class="col-sm-12 col-md-10">
                     <textarea id="areaDetail" class="form-control" type="text" name="detail_penyakit"></textarea>
 
@@ -66,7 +66,7 @@
             </div> --}}
 
 
-            <div class="d-flex flex-row-reverse" style="gap:8px;">
+            <div class="flex-row-reverse d-flex" style="gap:8px;">
                 <button class="btn btn-large btn-info " type="submit">Simpan</button>
                 <a href={{ route('gejala.index') }} class="btn btn-large btn-dark ">Batal</a>
             </div>

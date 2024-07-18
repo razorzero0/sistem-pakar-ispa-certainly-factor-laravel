@@ -61,7 +61,7 @@ class AdminController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(ProfileUpdateRequest $request, string $id)
+    public function update(UserRequest $request, string $id)
     {
         $this->service->update($request, $id);
 

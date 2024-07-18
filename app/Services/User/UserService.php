@@ -26,7 +26,7 @@ class  UserService implements BaseService
     {
         $validated  = $request->validated();
         $validated = $request->safe()
-            ->only(['name', 'email', 'password', 'password_confirmation']);
+            ->only(['name', 'email', 'address', 'password', 'password_confirmation']);
 
         return $this->model->create($validated);
     }
@@ -41,7 +41,7 @@ class  UserService implements BaseService
     {
         $validated  = $request->validated();
         $validated = $request->safe()
-            ->only(['name', 'email']);
+            ->only(['name', 'email', 'address']);
 
         return $this->model->update($validated, $id);
     }

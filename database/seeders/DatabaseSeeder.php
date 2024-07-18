@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
         $admin = User::create([
             'name' => 'admin',
             'email' => 'muhainun059@gmail.com',
+            'address' => 'Kediri',
             'email_verified_at' => now(),
             'password' => Hash::make('12345678'),
             'remember_token' => Str::random(10),
@@ -38,6 +39,7 @@ class DatabaseSeeder extends Seeder
         $user = User::create([
             'name' => 'user',
             'email' => 'muhainun058@gmail.com',
+            'address' => 'Kediri',
             'email_verified_at' => now(),
             'password' => Hash::make('12345678'),
             'remember_token' => Str::random(10),
@@ -52,61 +54,62 @@ class DatabaseSeeder extends Seeder
 
         Desease::create([
             'nama_penyakit' => 'Croup',
-            'detail_penyakit' => 'Croup',
+            'detail_penyakit' => 'Croup adalah penyakit respiratorik serius pada anak-anak, umumnya menyerang usia 6 bulan hingga 3 tahun, dan jarang terjadi pada usia 3 bulan dan di atas 15 tahun. Penyebab utama croup adalah virus, dengan Human Parainfluenza Virus tipe I sebagai penyebab paling umum (75%). Virus lainnya termasuk Respiratory Syncytial Virus (RSV), metapneumovirus, virus influenza A dan B, adenovirus, dan coronavirus. Meski jarang, Mycoplasma pneumonia juga pernah ditemukan sebagai penyebab croupCroup adalah penyakit respiratorik serius pada anak-anak, umumnya menyerang usia 6 bulan hingga 3 tahun, dan jarang terjadi pada usia 3 bulan dan di atas 15 tahun. Penyebab utama croup adalah virus, dengan Human Parainfluenza Virus tipe I sebagai penyebab paling umum (75%). Virus lainnya termasuk Respiratory Syncytial Virus (RSV), metapneumovirus, virus influenza A dan B, adenovirus, dan coronavirus. Meski jarang, Mycoplasma pneumonia juga pernah ditemukan sebagai penyebab croup',
             // 'solusi_penyakit' => 'Croup',
         ]);
 
         Desease::create([
             'nama_penyakit' => 'Sinusitis Akut',
-            'detail_penyakit' => 'Sinusitis Akut',
+            'detail_penyakit' => 'Sinusitis akut adalah infeksi pada sinus paranasal yang berlangsung kurang dari 30 hari. Kondisi ini ditandai dengan gejala yang menetap atau memburuk dalam jangka waktu singkat. Sinusitis akut dapat menyebabkan ketidaknyamanan dan mempengaruhi kualitas hidup, namun biasanya dapat sembuh dengan pengobatan yang tepat.',
             // 'solusi_penyakit' => 'Sinusitis Akut',
         ]);
 
         Desease::create([
             'nama_penyakit' => 'Pertusis (Batuk Rejan)',
-            'detail_penyakit' => 'Pertusis (Batuk Rejan)',
+            'detail_penyakit' => 'Batuk rejan (pertusis) merupakan infeksi bakteri pada saluran pernapasan yang sangat menular yang disebabkan oleh Bordetella pertussis. Penyakit ini merupakan penyebab utama kesakitan dan kematian di seluruh dunia, terutama pada bayi. Bordetella parapertussis juga dapat menyebabkan penyakit yang mirip dengan pertusis, meskipun biasanya tidak seberat itu. Gejala khas pertusis meliputi serangan batuk paroksismal yang disertai dengan suara teriakan dan muntah',
             // 'solusi_penyakit' => 'Pertusis (Batuk Rejan)',
         ]);
 
         Desease::create([
             'nama_penyakit' => 'Bronchitis',
-            'detail_penyakit' => 'Bronchitis',
+            'detail_penyakit' => 'Bronkitis merupakan salah satu alasan yang sering menyebabkan kunjungan ke dokter. Penyakit ini biasanya disebabkan oleh virus, dengan durasi sekitar 1-3 minggu, yang umumnya terjadi pada orang dewasa yang sehat dengan batuk sebagai gejala utama. Selain batuk dan produksi dahak, bronkitis akut sering kali disertai dengan gejala saluran pernapasan bagian atas',
             // 'solusi_penyakit' => 'Bronchitis',
         ]);
 
         Desease::create([
             'nama_penyakit' => 'Pneumonia',
-            'detail_penyakit' => 'Pneumonia',
+            'detail_penyakit' => 'Pneumonia adalah infeksi umum pada saluran pernapasan yang secara khusus mempengaruhi alveoli dan cabang-cabang bronkial terakhir di paru-paru. Infeksi ini dapat disebabkan oleh virus, bakteri, jamur, atau kombinasi dari mereka, yang mengakibatkan peradangan dan penumpukan cairan di jaringan paru-paru. Pneumonia merupakan salah satu penyebab utama tingkat keparahan dan kematian pada anak-anak di bawah usia 5 tahun secara global',
             // 'solusi_penyakit' => 'Pneumonia',
         ]);
 
         Desease::create([
             'nama_penyakit' => 'Epiglotitis',
-            'detail_penyakit' => 'Epiglotitis',
+            'detail_penyakit' => 'Epiglotitis merupakan inflamasi pada epiglotis, struktur yang terletak di belakang lidah dan terdiri dari tulang rawan serta berbentuk seperti flap. Biasanya, kondisi ini dipicu oleh infeksi bakteri atau trauma pada tenggorokan. Epiglotis berfungsi sebagai katup yang menutup batang tenggorokan saat menelan, mencegah makanan atau cairan masuk ke saluran pernapasan. Epiglotitis merupakan kondisi darurat yang membutuhkan penanganan segera',
             // 'solusi_penyakit' => 'Epiglotitis',
         ]);
 
         Desease::create([
             'nama_penyakit' => 'Tonsilitis Akut',
-            'detail_penyakit' => 'Tonsilitis Akut',
+            'detail_penyakit' => 'Tonsilitis adalah kondisi inflamasi pada tonsil palatina, yang merupakan bagian dari cincin Waldeyer. Penularan infeksi dapat melalui udara (airborne droplets), kontak tangan, dan juga ciuman. Tonsilitis dapat terjadi pada semua rentang usia, namun lebih sering ditemukan pada anak-anak',
             // 'solusi_penyakit' => 'Tonsilitis Akut',
         ]);
 
         Desease::create([
             'nama_penyakit' => 'Faringitis (Radang Tenggorokan)',
-            'detail_penyakit' => 'Faringitis (Radang Tenggorokan)',
+            'detail_penyakit' => 'Faringitis merujuk pada infeksi atau peradangan di tenggorokan (faring), yang merupakan saluran yang menghubungkan hidung dan mulut ke paru-paru. Faringitis termasuk dalam kategori penyakit Infeksi Saluran Pernapasan Akut (ISPA), yang meliputi infeksi pada saluran pernapasan dengan durasi tidak lebih dari 14 hari. Faringitis menjadi penyebab 1-2% pasien yang mengunjungi poliklinik atau unit gawat darurat, dan diperkirakan bahwa setiap tahun terdapat 11-18 juta pasien yang mengunjungi layanan kesehatan akibat faringitis di Amerika Serikat',
             // 'solusi_penyakit' => 'Faringitis (Radang Tenggorokan)',
         ]);
 
         Desease::create([
             'nama_penyakit' => 'Laringitis Akut',
-            'detail_penyakit' => 'Laringitis Akut',
+            'detail_penyakit' => 'Laringitis, juga dikenal sebagai peradangan pada organ laring, terjadi terutama pada pita suara. Kondisi ini ditandai dengan pembengkakan pada pita suara yang menyebabkan suara menjadi serak atau parau, sementara pembengkakan ini juga dapat mengganggu pernapasan dengan menghalangi aliran oksigen. Meskipun laringitis dapat sembuh sendiri dalam waktu 2-3 minggu, jika berlangsung lebih lama, dapat berkembang menjadi laringitis kronis. Biasanya, laringitis menyerang individu yang intens menggunakan suara mereka dalam aktivitas sehari-hari, seperti penyanyi, penyiar radio, atau MC
+',
             // 'solusi_penyakit' => 'Laringitis Akut',
         ]);
 
         Desease::create([
             'nama_penyakit' => 'Asma',
-            'detail_penyakit' => 'Asma',
+            'detail_penyakit' => 'Asma adalah kondisi inflamasi kronis pada saluran napas yang melibatkan berbagai sel dan elemen di dalamnya. Inflamasi yang berkelanjutan menyebabkan peningkatan reaktivitas pada saluran napas, yang menghasilkan gejala episodik yang berulang seperti kesulitan bernapas, sensasi berat di dada, mengi, terutama terjadi pada malam hari atau siang hari',
             // 'solusi_penyakit' => 'Asma',
         ]);
 

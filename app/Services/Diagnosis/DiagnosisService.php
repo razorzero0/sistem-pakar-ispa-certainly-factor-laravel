@@ -54,7 +54,7 @@ class  DiagnosisService implements BaseService
     {
         $validated  = $request->validated();
         $validated = $request->safe()
-            ->only(['nama_pengguna', 'alamat_pengguna', 'cf']);
+            ->only(['nama_pengguna', 'kode_pengguna', 'alamat_pengguna', 'cf']);
         $kondisi = collect([]);
         foreach ($validated['cf'] as $g) {
             if ($g) {
@@ -71,6 +71,7 @@ class  DiagnosisService implements BaseService
         $cf = new CertainlyFactor($this->model, $kondisi);
         $stmt = $cf->proccess();
         $stmt += ['nama_pengguna' => $validated['nama_pengguna']];
+        $stmt += ['kode_pengguna' => $validated['kode_pengguna']];
         $stmt += ['alamat_pengguna' => $validated['alamat_pengguna']];
         return $this->model->create($stmt);
     }

@@ -24,6 +24,7 @@ class DiagnosisRequest extends FormRequest
         return [
             'cf' => 'required',
             'nama_pengguna' => 'required',
+            'kode_pengguna' => 'required',
             'alamat_pengguna' => 'required'
             // 'nilai_alhir' => 'required',
             // 'hasil' => 'required',

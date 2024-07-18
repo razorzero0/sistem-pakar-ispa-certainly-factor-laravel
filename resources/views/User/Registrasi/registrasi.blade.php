@@ -42,7 +42,7 @@
                     <input class="form-control" value="{{ old('name') }}" type="text" placeholder="Masukkan Nama"
                         name="name">
                     @if ($errors->get('name'))
-                        <div class="alert alert-danger mt-1">
+                        <div class="mt-1 alert alert-danger">
                             @foreach ($errors->get('name') as $error)
                                 <li>{{ $error }}
                             @endforeach
@@ -56,8 +56,22 @@
                     <input class="form-control" value="{{ old('email') }}" type="email" placeholder="Masukkan Email"
                         name="email">
                     @if ($errors->get('email'))
-                        <div class="alert alert-danger mt-1">
+                        <div class="mt-1 alert alert-danger">
                             @foreach ($errors->get('email') as $error)
+                                <li>{{ $error }}
+                            @endforeach
+                        </div>
+                    @endif
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-2 col-form-label">alamat</label>
+                <div class="col-sm-12 col-md-10">
+                    <input class="form-control" value="{{ old('address') }}" type="" placeholder="Masukkan alamat"
+                        name="address">
+                    @if ($errors->get('address'))
+                        <div class="mt-1 alert alert-danger">
+                            @foreach ($errors->get('address') as $error)
                                 <li>{{ $error }}
                             @endforeach
                         </div>
@@ -69,7 +83,7 @@
                 <div class="col-sm-12 col-md-10">
                     <input class="form-control" type="password" name="password" placeholder="Masukkan password">
                     @if ($errors->get('password'))
-                        <div class="alert alert-danger mt-1">
+                        <div class="mt-1 alert alert-danger">
                             @foreach ($errors->get('password') as $error)
                                 <li>{{ $error }}
                             @endforeach
@@ -83,7 +97,7 @@
                     <input class="form-control" type="password" name="password_confirmation"
                         placeholder="Masukkan Password lagi">
                     @if ($errors->get('password_confirmation'))
-                        <div class="alert alert-danger mt-1">
+                        <div class="mt-1 alert alert-danger">
                             @foreach ($errors->get('password_confirmation') as $error)
                                 <li>{{ $error }}
                             @endforeach
@@ -92,7 +106,7 @@
                 </div>
             </div>
 
-            <div class="d-flex flex-row-reverse" style="gap:8px;">
+            <div class="flex-row-reverse d-flex" style="gap:8px;">
                 <button class="btn btn-large btn-info " type="submit">Simpan</button>
                 {{-- <a href={{ route('data-admin.index') }} class="btn btn-large btn-dark ">Kembali</a> --}}
             </div>

@@ -56,6 +56,12 @@
                 </div>
             </div>
             <div class="form-group row">
+                <label class="col-sm-12 col-md-2 col-form-label">Alamat</label>
+                <div class="col-sm-12 col-md-10">
+                    <input class="form-control" type="text" name="address" placeholder="masukkan alamat">
+                </div>
+            </div>
+            <div class="form-group row">
                 <label class="col-sm-12 col-md-2 col-form-label">Password</label>
                 <div class="col-sm-12 col-md-10">
                     <input class="form-control" type="text" name="password" placeholder="masukkan password">
@@ -69,7 +75,7 @@
                 </div>
             </div>
 
-            <div class="d-flex flex-row-reverse" style="gap:8px;">
+            <div class="flex-row-reverse d-flex" style="gap:8px;">
                 <button class="btn btn-large btn-info " type="submit">Tambah</button>
                 <a href={{ route('data-admin.index') }} class="btn btn-large btn-dark ">Batal</a>
             </div>

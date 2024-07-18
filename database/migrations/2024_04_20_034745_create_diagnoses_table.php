@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('diagnoses', function (Blueprint $table) {
             $table->id('diagnosis_id');
             $table->string('nama_pengguna');
+            $table->bigInteger('kode_pengguna')->unsigned();;
+            $table->foreign('kode_pengguna')->references('id')->on('users');
             $table->string('alamat_pengguna');
             $table->string('kode_penyakit');
             $table->foreign('kode_penyakit')->references('kode_penyakit')->on('deseases');

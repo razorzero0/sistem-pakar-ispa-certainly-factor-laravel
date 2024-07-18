@@ -29,7 +29,7 @@
 
             </div>
             <div class="pull-right">
-                <a href="{{ route('data-admin.create') }}" class="btn btn-large btn-success mb-4"> + Tambah Admin
+                <a href="{{ route('data-admin.create') }}" class="mb-4 btn btn-large btn-success"> + Tambah Admin
                 </a>
 
             </div>
@@ -48,6 +48,7 @@
                     <th scope="col">No</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Email</th>
+                    <th scope="col">Alamat</th>
                     <th scope="col">Role</th>
                     <th scope="col">Action</th>
                 </tr>
@@ -60,18 +61,19 @@
                             <td>{{ $i++ }}</td>
                             <td>{{ $admin->name }}</td>
                             <td>{{ $admin->email }}</td>
+                            <td>{{ $admin->address }}</td>
                             <td>{{ $admin->getRoleNames()[0] }}</td>
                             <td>
-                                <div class="d-flex flex-wrap" style="gap:5px;">
+                                <div class="flex-wrap d-flex" style="gap:5px;">
 
-                                    <a href={{ route('data-admin.edit', $admin->id) }} class="btn btn-info text-white">
+                                    <a href={{ route('data-admin.edit', $admin->id) }} class="text-white btn btn-info">
                                         <i class="bi bi-pen"></i> &nbsp; Edit &nbsp;
                                     </a>
                                     <form method="POST" action={{ route('data-admin.destroy', $admin->id) }}>
                                         @csrf
                                         @method('DELETE')
                                         <button onclick="return confirm('apakah yakin?')" type="submit"
-                                            class="btn btn-danger text-white ">
+                                            class="text-white btn btn-danger ">
                                             <i class="bi bi-trash"></i> Hapus
                                         </button>
                                     </form>

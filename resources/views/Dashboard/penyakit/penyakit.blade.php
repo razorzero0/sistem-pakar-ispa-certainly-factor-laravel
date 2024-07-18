@@ -29,7 +29,7 @@
 
             </div>
             <div class="pull-right">
-                <a href={{ route('penyakit.create') }} class="btn btn-large btn-success mb-4"> + Tambah Penyakit</a>
+                <a href={{ route('penyakit.create') }} class="mb-4 btn btn-large btn-success"> + Tambah Penyakit</a>
 
             </div>
 
@@ -45,7 +45,7 @@
                 <tr>
                     <th scope="col" style="width: 1rem">Kode</th>
                     <th>Nama</th>
-                    <th>Penjelasan</th>
+                    <th>Informasi</th>
                     {{-- <th>Solusi</th> --}}
                     <th scope="col">Action</th>
                 </tr>
@@ -76,7 +76,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal fade" id="solusi{{ $penyakit->kode_penyakit }}" tabindex="-1" role="dialog"
+                    {{-- <div class="modal fade" id="solusi{{ $penyakit->kode_penyakit }}" tabindex="-1" role="dialog"
                         aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg modal-dialog-centered">
                             <div class="modal-content">
@@ -99,7 +99,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <tr>
                         <th scope="row">{{ $penyakit->kode_penyakit }}</th>
                         <td>{{ $penyakit->nama_penyakit }}</td>
@@ -119,17 +119,17 @@
                             </button>
                         </td> --}}
                         <td>
-                            <div class="d-flex flex-wrap" style="gap:5px;">
+                            <div class="flex-wrap d-flex" style="gap:5px;">
 
                                 <a href={{ route('penyakit.edit', $penyakit->kode_penyakit) }} type="button"
-                                    class="btn btn-info text-white">
+                                    class="text-white btn btn-info">
                                     <i class="bi bi-pen"></i> &nbsp; Edit &nbsp;
                                 </a>
                                 <form method="POST" action={{ route('penyakit.destroy', $penyakit->kode_penyakit) }}>
                                     @csrf
                                     @method('DELETE')
                                     <button onclick="return confirm('apakah yakin?')" type="submit"
-                                        class="btn btn-danger text-white ">
+                                        class="text-white btn btn-danger ">
                                         <i class="bi bi-trash"></i> Hapus
                                     </button>
                                 </form>

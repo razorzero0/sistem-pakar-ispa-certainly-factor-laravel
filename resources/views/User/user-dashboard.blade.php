@@ -100,8 +100,8 @@
 
         <div class="mb-2
                         footer-wrap pd-20 card-box">
-            Admin Template By
-            <a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
+            Dibuat Oleh
+            <a href="https://github.com/razorzero0" target="_blank">Ainun</a>
         </div>
     </div>
 @endsection

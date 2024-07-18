@@ -131,7 +131,7 @@
 <body>
     <div id="invoice">
         <div class="header">
-            <h1>HASIL DIAGNOSA : {{ $data->nama_pengguna }} ({{ $data->alamat_pengguna }})</h1>
+            <h1>HASIL DIAGNOSA : {{ $data->user->name }} ({{ $data->user->address }})</h1>
         </div>
 
         {{-- <strong>Gejala yang Anda Alami :</strong> --}}
@@ -184,7 +184,7 @@
         <table class="tb-gejala">
             <tr class="tabletitle">
                 <th>
-                    <h2>Detail Penyakit {{ $data->desease->nama_penyakit }}</h2>
+                    <h2>Informasi Penyakit {{ $data->desease->nama_penyakit }}</h2>
                 </th>
             </tr>
             <tr class="service">

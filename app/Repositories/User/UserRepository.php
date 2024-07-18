@@ -34,6 +34,7 @@ class UserRepository implements UserInterface
         $data =  $this->model->find($id);
         $data->name = $request['name'];
         $data->email = $request['email'];
+        $data->address = $request['address'];
         return  $data->save();
     }
     public function delete($id): int
