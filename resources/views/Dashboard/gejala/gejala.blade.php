@@ -106,7 +106,7 @@
 
                                 <a href={{ route('gejala.edit', $gejala->kode_gejala) }} type="button"
                                     class="btn btn-info text-white">
-                                    <i class="bi bi-pen"></i> &nbsp; Edit &nbsp;
+                                    <i class="bi bi-pencil-square"></i> &nbsp; Edit &nbsp;
                                 </a>
                                 <form method="POST" action={{ route('gejala.destroy', $gejala->kode_gejala) }}>
                                     @csrf

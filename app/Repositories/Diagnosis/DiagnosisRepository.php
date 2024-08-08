@@ -27,7 +27,9 @@ class DiagnosisRepository implements DiagnosisInterface
                     $query->where('nama_penyakit', $nama_penyakit);
                 })->count()];
             });
-        $data = $this->model->latest()->get();
+        $data = $this->model->oldest()->get();
+        // $data = $this->model->all();
+        // $data = $this->model->orderBy('nama_pengguna')->get();
 
 
         return ['data' => $data, 'chart' => $chart];

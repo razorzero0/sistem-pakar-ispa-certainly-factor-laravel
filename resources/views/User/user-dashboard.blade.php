@@ -80,7 +80,8 @@
 
                 </div>
                 <p class="p-3" style="text-align: center;">Tetaplah sehat dan selamat datang di <strong>Aplikasi
-                        Sistem Pakar Diagnosa Penyakit Infeksi Saluran Pernapasan Akut (ISPA)</strong>! Kami hadir untuk
+                        Sistem Pendukung Keputusan Diagnosa Penyakit Infeksi Saluran Pernapasan Akut (ISPA)</strong>! Kami
+                    hadir untuk
                     memberikan bantuan dalam
                     mengidentifikasi dan mengelola penyakit ISPA dengan cepat dan akurat. Mari bersama-sama menjaga
                     kesehatan dan meningkatkan kesadaran kita akan pentingnya pencegahan

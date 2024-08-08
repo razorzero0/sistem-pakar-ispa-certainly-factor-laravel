@@ -26,14 +26,14 @@ class  DiagnosisService implements BaseService
         //     ['nilai' => -1.0, 'deskripsi' => 'Pasti Tidak'],
         // ]);
         $this->term = collect([
-            ['nilai' => 1.0, 'deskripsi' => 'Sangat Sering / Selalu'],
+            ['nilai' => 1.0, 'deskripsi' => 'Sangat Sering / Selalu / Iya '],
             ['nilai' => 0.8, 'deskripsi' => 'Hampir Selalu'],
             ['nilai' => 0.6, 'deskripsi' => 'Sering'],
             ['nilai' => 0.4, 'deskripsi' => 'Kadang-kadang'],
-            ['nilai' => -0.2, 'deskripsi' => 'Tidak Tahu'],
-            ['nilai' => -0.4, 'deskripsi' => 'Hampir Jarang'],
-            ['nilai' => -0.6, 'deskripsi' => 'Jarang'],
-            ['nilai' => -0.8, 'deskripsi' => 'Hampir Tidak Pernah'],
+            // ['nilai' => -0.2, 'deskripsi' => 'Tidak Tahu'],
+            // ['nilai' => -0.4, 'deskripsi' => 'Hampir Jarang'],
+            // ['nilai' => -0.6, 'deskripsi' => 'Jarang'],
+            // ['nilai' => -0.8, 'deskripsi' => 'Hampir Tidak Pernah'],
             ['nilai' => -1.0, 'deskripsi' => 'Tidak Pernah'],
         ]);
     }
@@ -67,13 +67,16 @@ class  DiagnosisService implements BaseService
                 ]);
             }
         }
-
         $cf = new CertainlyFactor($this->model, $kondisi);
         $stmt = $cf->proccess();
-        $stmt += ['nama_pengguna' => $validated['nama_pengguna']];
-        $stmt += ['kode_pengguna' => $validated['kode_pengguna']];
-        $stmt += ['alamat_pengguna' => $validated['alamat_pengguna']];
-        return $this->model->create($stmt);
+        if ($stmt['kode_penyakit']) {
+            $stmt += ['nama_pengguna' => $validated['nama_pengguna']];
+            $stmt += ['kode_pengguna' => $validated['kode_pengguna']];
+            $stmt += ['alamat_pengguna' => $validated['alamat_pengguna']];
+            return $this->model->create($stmt);
+        } else {
+            return false;
+        }
     }
 
     public function find($id)
@@ -88,20 +91,6 @@ class  DiagnosisService implements BaseService
         $validated = $request->safe()
             ->only(['kode_penyakit', 'kode_gejala', 'mb_pakar', 'md_pakar']);
 
-        // $data = collect([]);
-        // if ($validated) {
-        //     if ($this->model->delete($id)) {
-        //         foreach ($request->kode_gejala as $g) {
-        //             $data = [
-        //                 'kode_penyakit' => $request->kode_penyakit,
-        //                 'kode_gejala' => $g,
-        //                 'mb_pakar' => $request->mb_pakar,
-        //                 'md_pakar' => $request->md_pakar
-        //             ];
-        //             $this->model->updateRule($data);
-        //         }
-        //     }
-        // }
         $this->model->update($validated, $id);
         return $validated;
     }

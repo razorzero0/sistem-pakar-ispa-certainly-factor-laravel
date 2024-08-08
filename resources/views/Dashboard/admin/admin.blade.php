@@ -28,11 +28,10 @@
                 <h4 class="text-blue h4">Daftar User</h4>
 
             </div>
-            <div class="pull-right">
+            {{-- <div class="pull-right">
                 <a href="{{ route('data-admin.create') }}" class="mb-4 btn btn-large btn-success"> + Tambah Admin
                 </a>
-
-            </div>
+            </div> --}}
 
         </div>
 
@@ -67,7 +66,7 @@
                                 <div class="flex-wrap d-flex" style="gap:5px;">
 
                                     <a href={{ route('data-admin.edit', $admin->id) }} class="text-white btn btn-info">
-                                        <i class="bi bi-pen"></i> &nbsp; Edit &nbsp;
+                                        <i class="bi bi-pencil-square"></i> &nbsp; Edit &nbsp;
                                     </a>
                                     <form method="POST" action={{ route('data-admin.destroy', $admin->id) }}>
                                         @csrf

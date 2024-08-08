@@ -17,7 +17,8 @@ class UserRepository implements UserInterface
 
     public function all(): Collection
     {
-        return  $this->model->all();
+        $data = $this->model->orderBy('name')->get();
+        return  $data;
     }
     public function create($data)
     {

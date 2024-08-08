@@ -123,7 +123,7 @@
 
                                 <a href={{ route('penyakit.edit', $penyakit->kode_penyakit) }} type="button"
                                     class="text-white btn btn-info">
-                                    <i class="bi bi-pen"></i> &nbsp; Edit &nbsp;
+                                    <i class="bi bi-pencil-square"></i> &nbsp; Edit &nbsp;
                                 </a>
                                 <form method="POST" action={{ route('penyakit.destroy', $penyakit->kode_penyakit) }}>
                                     @csrf

@@ -81,7 +81,7 @@
 
                                 <a href={{ route('pengetahuan.edit', $rule->kode_pengetahuan) }}
                                     class="btn btn-info text-white">
-                                    <i class="bi bi-pen"></i> &nbsp; Edit &nbsp;
+                                    <i class="bi bi-pencil-square"></i> &nbsp; Edit &nbsp;
                                 </a>
                                 <form method="POST" action={{ route('pengetahuan.destroy', $rule->kode_pengetahuan) }}>
                                     @csrf

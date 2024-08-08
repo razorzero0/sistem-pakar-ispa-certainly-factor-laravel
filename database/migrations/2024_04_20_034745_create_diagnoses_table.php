@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('diagnoses', function (Blueprint $table) {
-            $table->id('diagnosis_id');
+            // $table->id('diagnosis_id');
+            $table->string('diagnosis_id')->primary();
             $table->string('nama_pengguna');
             $table->bigInteger('kode_pengguna')->unsigned();;
             $table->foreign('kode_pengguna')->references('id')->on('users');

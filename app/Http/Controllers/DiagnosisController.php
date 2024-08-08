@@ -7,6 +7,7 @@ use App\Models\Diagnosis;
 use App\Services\Diagnosis\DiagnosisService;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Auth;
 
 class DiagnosisController extends Controller
 {
@@ -40,8 +41,14 @@ class DiagnosisController extends Controller
     {
 
         $data = $this->service->store($request);
-        $pdf = PDF::loadView('User.Diagnosis.hasil', ['data' => $data]);
-        return $pdf->stream("Hasil-Diagnosa.pdf");
+        if ($data) {
+            // $pdf = PDF::loadView('User.Diagnosis.hasil', ['data' => $data]);
+            // $pdf = PDF::loadView('User.Diagnosis.terimakasih', ['data' => $data]);
+            // return $pdf->stream("Hasil-Diagnosa.pdf");
+            return redirect(route('diagnosis.show', $data->diagnosis_id));
+        } else {
+            return redirect()->back()->with('error_gejala', 'Mohon memasukkan Gejala/Kondisi');
+        }
         // dd($data);
     }
 
@@ -51,8 +58,29 @@ class DiagnosisController extends Controller
     public function show(string $id)
     {
         $data = $this->service->find($id);
-        $pdf = PDF::loadView('User.Diagnosis.hasil', $data);
-        return $pdf->stream("Hasil-Diagnosa.pdf");
+        if ($data) {
+            // $pdf = PDF::loadView('User.Diagnosis.hasil', $data);
+            // $filename = $data['data']->nama_pengguna . "_" . substr($data['data']->created_at, 0, 10) . ".pdf";
+            // if (Auth::user()->roles[0]->name == 'admin' || $data['data']->kode_pengguna == Auth::user()->id) {
+            //     return $pdf->stream($filename);
+            // }
+            return view('User.Diagnosis.hasil', $data);
+        }
+        return view('User.Diagnosis.riwayat', $this->service->getAll());
+    }
+
+    public function cetak($id)
+    {
+        // dd($id);
+        $data = $this->service->find($id);
+        if ($data) {
+            $pdf = PDF::loadView('User.Diagnosis.cetak', $data);
+            $filename = $data['data']->nama_pengguna . "_" . substr($data['data']->created_at, 0, 10) . ".pdf";
+            if (Auth::user()->roles[0]->name == 'admin' || $data['data']->kode_pengguna == Auth::user()->id) {
+                return $pdf->stream($filename);
+            }
+        }
+        return view('User.Diagnosis.riwayat', $this->service->getAll());
     }
 
     /**

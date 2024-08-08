@@ -39,6 +39,8 @@ Route::middleware(['role:admin'])->group(function () {
 Route::middleware(['role:user|admin'])->group(function () {
     Route::resource('diagnosis', DiagnosisController::class);
     Route::get('/riwayat-diagnosis', [DiagnosisController::class, 'history'])->name('riwayat-diagnosis');
+    Route::get('/cetak-diagnosis/{id}', [DiagnosisController::class, 'cetak'])->name('cetak-diagnosis');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

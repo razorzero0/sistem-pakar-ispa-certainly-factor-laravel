@@ -48,26 +48,32 @@
                     @endforeach
                 </div>
             @endif
+            @if (session('error_gejala'))
+                <div class="alert alert-danger">
+                    {{ session('error_gejala') }}
+                </div>
+            @endif
             <div class="my-3 form-group row">
                 <label class=" col-md-2 col-4 col-form-label">Nama :</label>
                 <div class=" col-md-10 col-8">
-                    <input class="form-control" readonly value="{{ Auth::user()->name }}" type="text"
-                        name="nama_pengguna" placeholder="masukkan nama">
+                    <input class="form-control" @if (Auth::user()->hasRole('user')) readonly @endif
+                        value="{{ Auth::user()->name }}" type="text" name="nama_pengguna" placeholder="masukkan nama">
                     <input hidden value="{{ Auth::user()->id }}" type="text" name="kode_pengguna">
                 </div>
             </div>
             <div class="my-3 form-group row">
                 <label class=" col-md-2 col-4 col-form-label">Alamat :</label>
                 <div class=" col-md-10 col-8">
-                    <input class="form-control" readonly value="{{ Auth::user()->address }}" type="text"
-                        name="alamat_pengguna" placeholder="masukkan alamat">
+                    <input class="form-control" @if (Auth::user()->hasRole('user')) readonly @endif
+                        value="{{ Auth::user()->address }}" type="text" name="alamat_pengguna"
+                        placeholder="masukkan alamat">
                 </div>
             </div>
             <table class="table" id="myTable2">
                 <thead>
                     <tr>
-                        <th scope="col" style="width: 3rem">No</th>
-                        <th scope="col">Kode</th>
+                        <th scope="col" style="width: 1rem">No</th>
+                        {{-- <th scope="col">Kode</th> --}}
                         <th scope="col">Nama</th>
                         <th scope="col">Kondisi</th>
                     </tr>
@@ -77,7 +83,7 @@
                     @foreach ($gejala as $g)
                         <tr>
                             <th>{{ $i++ }}</th>
-                            <td scope="row">{{ $g->kode_gejala }}</td>
+                            {{-- <td scope="row">{{ $g->kode_gejala }}</td> --}}
                             <td>{{ $g->nama_gejala }}</td>
                             <td scope="row">
                                 <select name="cf[]" class="form-control cf3">

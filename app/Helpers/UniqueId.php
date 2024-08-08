@@ -19,7 +19,7 @@ trait UniqueId
                 $cek = null;
                 $num = 1;
                 if (static::count() == $lastId) {
-                    $model->kode_gejala = 'G' . str_pad($lastId + 1, 2, '0', STR_PAD_LEFT); // Format  + increment dimulai dari 1
+                    $model->kode_gejala = 'G' . str_pad($lastId + 1, 2, '0', STR_PAD_LEFT); // Format + increment dimulai dari 1
                 } else {
                     do {
                         $find = static::where('kode_gejala', 'G' . str_pad($num, 2, '0', STR_PAD_LEFT))->first();
@@ -37,7 +37,7 @@ trait UniqueId
                 $cek = null;
                 $num = 1;
                 if (static::count() == $lastId) {
-                    $model->kode_penyakit = 'P' . str_pad($lastId + 1, 2, '0', STR_PAD_LEFT); // Format  + increment dimulai dari 1
+                    $model->kode_penyakit = 'P' . str_pad($lastId + 1, 2, '0', STR_PAD_LEFT); // Format + increment dimulai dari 1
                 } else {
                     do {
                         $find = static::where('kode_penyakit', 'P' . str_pad($num, 2, '0', STR_PAD_LEFT))->first();
@@ -49,17 +49,18 @@ trait UniqueId
                     } while (!$cek);
                     $model->kode_penyakit = $cek;
                 }
+            } elseif ($model->primaryKey == 'diagnosis_id') {
+                $year = date('Y');
+                $month = date('m');
+                $day = date('d');
+                $randomChars = strtoupper(Str::random(3));
+                $prefix = 'DGS-' . $year . $month . $day . $randomChars;
+
+                $last = static::orderBy('diagnosis_id', 'desc')->first();
+                $lastId = ($last) ? (int) substr($last->diagnosis_id, -3) : 0;
+                $num = $lastId + 1;
+                $model->diagnosis_id = $prefix;
             }
         });
     }
-
-    /**
-     * getUuidColumnName
-     *
-     * @return string
-     */
-    // protected function getUuidColumnName(): string
-    // {
-    //     return property_exists($this, 'primaryKey') ? $this->primaryKey : 'id';
-    // }
 }

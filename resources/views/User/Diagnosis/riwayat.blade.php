@@ -33,7 +33,7 @@
                             dilakukan</small></p>
                 </div>
                 @role('admin')
-                    <div class="pull-right">
+                    <div class="mb-1 pull-right">
                         <form method="POST" action={{ route('diagnosis-deleteAll') }}>
                             @csrf
                             <button onclick="return confirm('apakah yakin?')" type="submit" class="text-white btn btn-danger ">
@@ -49,8 +49,11 @@
                     <p>{{ $message }}</p>
                 </div>
             @endif
+            @php
+                $tableId = Auth::user()->hasRole('admin') ? 'myTable3' : 'myTable4';
+            @endphp
 
-            <table class="table" id="myTable2">
+            <table class="table" id="{{ $tableId }}">
                 <thead>
                     <tr>
                         <th scope="col" style="width: 3rem">No</th>
@@ -69,14 +72,19 @@
                         @if ($diagnosis->kode_pengguna == Auth::user()->id || Auth::user()->hasRole('admin'))
                             <tr>
                                 <th scope="row">{{ $i++ }}</th>
-                                <td>{{ $diagnosis->created_at }}</td>
-                                <td>{{ $diagnosis->user->name }}</td>
+                                <td>{{ substr($diagnosis->created_at, 0, 10) }}</td>
+                                <td scope="col" data-priority="1">{{ $diagnosis->nama_pengguna }}</td>
                                 <td>{{ $diagnosis->desease->nama_penyakit }}</td>
-                                <td>{{ number_format($diagnosis->nilai_akhir, 1) . '%' }}</td>
+                                <td>{{ number_format($diagnosis->nilai_akhir, 2) . '%' }}
+                                </td>
                                 <td>
-                                    <a href="{{ route('diagnosis.show', $diagnosis->diagnosis_id) }}">
-                                        <i class="bi bi-eye-fill"></i>
+                                    <a href="{{ route('diagnosis.show', $diagnosis->diagnosis_id) }}"
+                                        class="text-white btn btn-sm btn-info">
+                                        <i class="bi bi-eye-fill"></i> Lihat
                                     </a>
+                                    {{-- <a href="{{ route('diagnosis.show', $diagnosis->diagnosis_id) }}">
+                                        <i class="bi bi-eye-fill"></i>
+                                    </a> --}}
 
                                 </td>
                                 <td>
@@ -108,7 +116,7 @@
                 <h4 class="mb-4 text-center h4 text-secondary ">Persentase jumlah penyakit yang telah ter-diagnosa</h4>
                 <div class="d-flex justify-content-center">
 
-                    <div id="chart8"></div>
+                    <canvas id="chart8" width="400" height="400"></canvas>
                 </div>
             </div>
         @endrole
@@ -117,37 +125,55 @@
 
     <!-- basic table  End -->
     @push('scripts')
-        <script src={{ asset('assets/src/plugins/apexcharts/apexcharts.min.js') }}></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script>
-            var chart = {!! json_encode($chart->toArray()) !!};
-            console.log(Object.keys(chart));
-            var options8 = {
-                series: Object.values(chart), // 10 data
-                chart: {
-                    type: 'donut',
-                    width: 600
+            // Data chart dari PHP
+            var chartData = {!! json_encode($chart->toArray()) !!};
+
+            var labels = Object.keys(chartData); // Nama label untuk data
+            var dataValues = Object.values(chartData); // Data nilai
+
+            var ctx = document.getElementById('chart8').getContext('2d');
+
+            var chart = new Chart(ctx, {
+                type: 'doughnut', // Tipe chart yang digunakan
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: dataValues,
+                        backgroundColor: [
+                            '#FF6384',
+                            '#36A2EB',
+                            '#FFCE56',
+                            '#E7E9ED',
+                            '#4BC0C0',
+                            '#FF9F40',
+                            '#FFCD56',
+                            '#C9CBCF',
+                            '#36A2EB',
+                            '#FF6F61'
+                        ],
+                        borderColor: '#fff',
+                        borderWidth: 1
+                    }]
                 },
-                legend: {
-                    position: 'left'
-                },
-                responsive: [{
-                    breakpoint: 680,
-                    options: {
-                        chart: {
-                            width: 400
-                        },
+                options: {
+                    responsive: true,
+                    plugins: {
                         legend: {
-                            position: 'bottom'
+                            position: 'left',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(tooltipItem) {
+                                    return tooltipItem.label + ': ' + tooltipItem.raw + '%';
+                                }
+                            }
                         }
-                    }
-                }],
-                labels: Object.keys(chart), // Nama label untuk 10 data
-            };
-
-            var chart = new ApexCharts(document.querySelector("#chart8"), options8);
-
-
-            chart.render();
+                    },
+                    maintainAspectRatio: false // Agar chart menyesuaikan dengan ukuran canvas
+                }
+            });
         </script>
     @endpush
 @endsection

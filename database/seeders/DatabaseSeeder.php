@@ -110,7 +110,12 @@ class DatabaseSeeder extends Seeder
         Desease::create([
             'nama_penyakit' => 'Asma',
             'detail_penyakit' => 'Asma adalah kondisi inflamasi kronis pada saluran napas yang melibatkan berbagai sel dan elemen di dalamnya. Inflamasi yang berkelanjutan menyebabkan peningkatan reaktivitas pada saluran napas, yang menghasilkan gejala episodik yang berulang seperti kesulitan bernapas, sensasi berat di dada, mengi, terutama terjadi pada malam hari atau siang hari',
-            // 'solusi_penyakit' => 'Asma',
+
+        ]);
+
+        Desease::create([
+            'nama_penyakit' => 'Common Cold',
+            'detail_penyakit' => '<p>Common cold adalah salah satu infeksi saluran pernapasan akut (ISPA) yang termasuk kategori nonspesifik atau "flu biasa". Penyakit ini disebabkan oleh virus dan menyerang saluran pernapasan akut, terutama hidung. Infeksi pernapasan akut yang paling banyak ditemukan adalah nasofaringitis atau common cold. Penyebabnya antara lain rhinovirus, influenza virus, adenovirus (ADV), enterovirus, dan parainfluenza viruses (PIV). Lebih dari 200 tipe rhinovirus telah ditemukan, dan infeksi ini terutama terjadi pada anak-anak di bawah usia 5 tahun.</p>',
         ]);
 
         // Indication::create([
@@ -290,7 +295,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Indication::create([
-            'nama_gejala' => 'batuk berlangsung selama 5hari atau lebih',
+            'nama_gejala' => 'batuk berlangsung selama 5 hari atau lebih',
         ]);
 
         Indication::create([
@@ -365,6 +370,17 @@ class DatabaseSeeder extends Seeder
             'nama_gejala' => 'Ada Riwayat Alergi',
         ]);
 
+        Indication::create([
+            'nama_gejala' => 'bersin-bersin',
+        ]);
+
+        Indication::create([
+            'nama_gejala' => 'sakit kepala',
+        ]);
+
+        Indication::create([
+            'nama_gejala' => 'badan terasa sakit dan tidak nyaman',
+        ]);
 
         // // P01
         // Rule::create(['kode_penyakit' => 'P01', 'kode_gejala' => 'G01', 'cf_pakar' => 0.5, 'mb_pakar' => 0.6, 'md_pakar' => 0.1]);
@@ -457,7 +473,7 @@ class DatabaseSeeder extends Seeder
         Rule::create(['kode_penyakit' => 'P04', 'kode_gejala' => 'G25', 'cf_pakar' => 0.5, 'mb_pakar' => 0.5, 'md_pakar' => 0.0]);
 
         Rule::create(['kode_penyakit' => 'P05', 'kode_gejala' => 'G14', 'cf_pakar' => 0.5, 'mb_pakar' => 0.6, 'md_pakar' => 0.1]);
-        Rule::create(['kode_penyakit' => 'P05', 'kode_gejala' => 'G17', 'cf_pakar' => 0.4, 'mb_pakar' => 0.5, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P05', 'kode_gejala' => 'G17', 'cf_pakar' => 0.6, 'mb_pakar' => 0.6, 'md_pakar' => 0]);
         Rule::create(['kode_penyakit' => 'P05', 'kode_gejala' => 'G19', 'cf_pakar' => 0.8, 'mb_pakar' => 0.8, 'md_pakar' => 0.0]);
         Rule::create(['kode_penyakit' => 'P05', 'kode_gejala' => 'G20', 'cf_pakar' => 0.3, 'mb_pakar' => 0.4, 'md_pakar' => 0.1]);
         Rule::create(['kode_penyakit' => 'P05', 'kode_gejala' => 'G21', 'cf_pakar' => 0.3, 'mb_pakar' => 0.4, 'md_pakar' => 0.1]);
@@ -472,7 +488,7 @@ class DatabaseSeeder extends Seeder
         Rule::create(['kode_penyakit' => 'P06', 'kode_gejala' => 'G24', 'cf_pakar' => 0.6, 'mb_pakar' => 0.7, 'md_pakar' => 0.1]);
 
         Rule::create(['kode_penyakit' => 'P07', 'kode_gejala' => 'G05', 'cf_pakar' => 0.5, 'mb_pakar' => 0.6, 'md_pakar' => 0.1]);
-        Rule::create(['kode_penyakit' => 'P07', 'kode_gejala' => 'G17', 'cf_pakar' => 0.5, 'mb_pakar' => 0.6, 'md_pakar' => 0.1]);
+        Rule::create(['kode_penyakit' => 'P07', 'kode_gejala' => 'G17', 'cf_pakar' => 0.6, 'mb_pakar' => 0.6, 'md_pakar' => 0.0]);
         Rule::create(['kode_penyakit' => 'P07', 'kode_gejala' => 'G26', 'cf_pakar' => 0.7, 'mb_pakar' => 0.7, 'md_pakar' => 0.0]);
         Rule::create(['kode_penyakit' => 'P07', 'kode_gejala' => 'G27', 'cf_pakar' => 0.8, 'mb_pakar' => 0.8, 'md_pakar' => 0.0]);
         Rule::create(['kode_penyakit' => 'P07', 'kode_gejala' => 'G28', 'cf_pakar' => 1.0, 'mb_pakar' => 1.0, 'md_pakar' => 0.0]);
@@ -490,5 +506,12 @@ class DatabaseSeeder extends Seeder
         Rule::create(['kode_penyakit' => 'P10', 'kode_gejala' => 'G25', 'cf_pakar' => 0.7, 'mb_pakar' => 0.7, 'md_pakar' => 0.0]);
         Rule::create(['kode_penyakit' => 'P10', 'kode_gejala' => 'G31', 'cf_pakar' => 0.9, 'mb_pakar' => 0.9, 'md_pakar' => 0.0]);
         Rule::create(['kode_penyakit' => 'P10', 'kode_gejala' => 'G32', 'cf_pakar' => 0.6, 'mb_pakar' => 0.6, 'md_pakar' => 0.0]);
+
+        Rule::create(['kode_penyakit' => 'P11', 'kode_gejala' => 'G06', 'cf_pakar' => 0.9, 'mb_pakar' => 0.9, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P11', 'kode_gejala' => 'G17', 'cf_pakar' => 0.5, 'mb_pakar' => 0.5, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P11', 'kode_gejala' => 'G18', 'cf_pakar' => 0.7, 'mb_pakar' => 0.7, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P11', 'kode_gejala' => 'G33', 'cf_pakar' => 0.9, 'mb_pakar' => 0.9, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P11', 'kode_gejala' => 'G34', 'cf_pakar' => 0.6, 'mb_pakar' => 0.6, 'md_pakar' => 0.0]);
+        Rule::create(['kode_penyakit' => 'P11', 'kode_gejala' => 'G35', 'cf_pakar' => 0.6, 'mb_pakar' => 0.6, 'md_pakar' => 0.0]);
     }
 }

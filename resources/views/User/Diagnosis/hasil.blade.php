@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('Dashboard.layout.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Font Awesome -->
+@section('content')
     <style>
-        * {
-            margin: 0;
-            box-sizing: border-box;
-
-        }
-
         h1 {
             font-size: 1.5em;
             color: #222;
@@ -52,7 +41,7 @@
         [id='invoice'] {
             /* Targets all id with 'col-' */
             border-bottom: 1px solid #EEE;
-            padding: 30px;
+            /* padding: 30px; */
         }
 
 
@@ -63,7 +52,13 @@
             border: 1px solid #ffdb4a
         }
 
-        td {
+        .tb-gejala th {
+            border: 1px solid #6e6e6e
+        }
+
+
+        td,
+        th {
             text-align: center;
         }
 
@@ -78,13 +73,20 @@
         }
 
         .tb-gejala2 {
-            margin-top: 1em
+
+            margin-top: 1em;
+            border-collapse: collapse;
         }
 
         .tb-gejala2 td {
+            text-align: left;
             font-weight: bold;
             font-size: 1.1em;
+            padding: 5px;
+            border: 1px solid #d1cece;
         }
+
+
 
         .tabletitle {
             padding: 5px;
@@ -122,117 +124,175 @@
         }
 
         p {
-            margin-top: 1em
+            /* margin-top: 1em */
+        }
+
+        .disclaimer {
+            font-size: 14px;
+            color: #ff0000;
+            /* Warna teks merah */
+            background-color: #f9f9f9;
+            /* Warna latar belakang abu-abu muda */
+            border: 1px solid #e0e0e0;
+            /* Garis batas abu-abu */
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
         }
     </style>
-    <title>Document</title>
-</head>
+    <div class="xs-pd-10-1 pd-ltr-10">
+        <div class="page-header">
+            <div class="row">
+                <div class="col-md-12 ">
+                    <div class="title">
+                        <h4>Diagnosis</h4>
+                    </div>
+                    <nav aria-label="breadcrumb" role="navigation">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Hasil Diagnosis
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
 
-<body>
-    <div id="invoice">
-        <div class="header">
-            <h1>HASIL DIAGNOSA : {{ $data->user->name }} ({{ $data->user->address }})</h1>
+            </div>
+        </div>
+        <!-- basic table  Start -->
+
+        <div class=" mb-30 pd-20 card-box" style="margin-top: -1.2em;">
+            <div class="clearfix mb-12">
+                <div class="pull-left">
+                    <h4 class="text-blue h4">HASIL DIAGNOSA : {{ $data->nama_pengguna }} ({{ $data->user->address }})</h4>
+
+                </div>
+                <div class="pull-right">
+
+                    <a href="{{ route('cetak-diagnosis', $data->diagnosis_id) }}" class="text-white btn btn-success">
+                        <i class="bi bi-printer"></i> &nbsp; Cetak
+                    </a>
+
+                </div>
+            </div>
+
+            <div id="invoice">
+
+                <table style="margin-top: 0">
+                    <tr>
+                        <td>Tanggal Konsultasi</td>
+                        <td> : {{ substr($data->created_at, 0, 10) }}</td>
+                    </tr>
+                </table>
+
+                {{-- <strong>Gejala yang Anda Alami :</strong> --}}
+                <table class="tb-gejala">
+                    <tr class="tabletitle">
+                        <th class="item">
+                            <h2>No</h2>
+                        </th>
+                        <th class="Hours">
+                            <h2>Kode Gejala</h2>
+                        </th>
+                        <th class="Rate">
+                            <h2>Gejala</h2>
+                        </th>
+                        <th class="subtotal">
+                            <h2>Kondisi</h2>
+                        </th>
+                    </tr>
+                    <?php $i = 1; ?>
+                    @foreach (json_decode($data->gejala) as $diagnosa)
+                        <tr class="service">
+                            <td class="tableitem">{{ $i++ }}</td>
+                            <td class="tableitem">{{ $diagnosa->kode_gejala }}</td>
+                            <td class="tableitem">{{ $diagnosa->nama_gejala }}</td>
+                            <td class="tableitem">
+                                {{ $diagnosa->deskripsi }}
+                            </td>
+                        </tr>
+                    @endforeach
+
+
+                </table>
+
+                <hr class="solid">
+
+                <p>Berdasarkan gejala dan kondisi yang dipilih, kemungkinan anda mengalami :
+                </p>
+                <table class="tb-gejala2">
+
+                    <tr>
+                        <td>Nama Penyakit</td>
+                        <td>: {{ $data->desease->nama_penyakit }}</td>
+                    </tr>
+                    <tr>
+                        <td>Nilai Keyakinan</td>
+                        <td>: {{ number_format($data->nilai_akhir, 2) . '%' }}</td>
+                    </tr>
+                </table>
+                <table class="tb-gejala">
+                    <tr class="tabletitle">
+                        <th>
+                            <h2>Informasi Penyakit {{ $data->desease->nama_penyakit }}</h2>
+                        </th>
+                    </tr>
+                    <tr class="service">
+                        <td style="padding: 1em" style="text-align: left" class="tableitem">{!! $data->desease->detail_penyakit !!}</td>
+                    </tr>
+
+                </table>
+                {{-- <table class="tb-gejala">
+                    <tr class="tabletitle">
+                        <th>
+                            <h2>Solusi Penyakit {{ $data->desease->nama_penyakit }}</h2>
+                        </th>
+                    </tr>
+                    <tr class="service">
+                        <td style="padding: 1em" class="tableitem">{!! $data->desease->solusi_penyakit !!}</td>
+                    </tr>
+                </table> --}}
+                <hr class="solid">
+                <p>Adapun penyakit lain yang mungkin anda alami :
+                </p>
+
+                <table class="tb-gejala">
+                    <tr class="tabletitle">
+                        <th class="item">
+                            <h2>No</h2>
+                        </th>
+                        <th class="Hours">
+                            <h2>Nama Penyakit</h2>
+                        </th>
+                        <th class="Rate">
+                            <h2>Nilai Keyakinan</h2>
+                        </th>
+                    </tr>
+                    <?php $i = 1; ?>
+                    @foreach (json_decode($data->hasil) as $penyakit)
+                        @if ($penyakit->kode_penyakit !== $data->desease->kode_penyakit && $penyakit->nilai > 0)
+                            <tr class="service">
+                                <td class="tableitem">{{ $i++ }}</td>
+                                <td class="tableitem">{{ $penyakit->nama_penyakit }}</td>
+                                <td class="tableitem">{{ number_format($penyakit->nilai, 2) . '%' }}</td>
+
+                            </tr>
+                        @endif
+                    @endforeach
+
+
+
+                </table>
+                <p class="disclaimer">
+                    <b>Disclaimer:</b> Hasil dari sistem SPK ini bukan merupakan keputusan final. Diperlukan pemeriksaan dan
+                    uji
+                    laboratorium oleh tenaga medis atau dokter untuk verifikasi lebih lanjut.
+                </p>
+            </div>
+
         </div>
 
-        {{-- <strong>Gejala yang Anda Alami :</strong> --}}
-        <table class="tb-gejala">
-            <tr class="tabletitle">
-                <th class="item">
-                    <h2>No</h2>
-                </th>
-                <th class="Hours">
-                    <h2>Kode Gejala</h2>
-                </th>
-                <th class="Rate">
-                    <h2>Gejala</h2>
-                </th>
-                <th class="subtotal">
-                    <h2>Kondisi</h2>
-                </th>
-            </tr>
-            <?php $i = 1; ?>
-            @foreach (json_decode($data->gejala) as $diagnosa)
-                <tr class="service">
-                    <td class="tableitem">{{ $i++ }}</td>
-                    <td class="tableitem">{{ $diagnosa->kode_gejala }}</td>
-                    <td class="tableitem">{{ $diagnosa->nama_gejala }}</td>
-                    <td class="tableitem">
-                        {{ $diagnosa->deskripsi }}
-                    </td>
-                </tr>
-            @endforeach
-
-
-        </table>
-
-        <hr class="solid">
-
-        <p>Berdasarkan gejala dan kondisi yang dipilih, kemungkinan anda mengalami :
-        </p>
-        <table class="tb-gejala2">
-            <tr>
-                <td>Nama Penyakit </td>
-                <td>:</td>
-                <td>{{ $data->desease->nama_penyakit }}</td>
-            </tr>
-            <tr>
-                <td>Nilai Keyakinan </td>
-                <td>:</td>
-                <td>{{ number_format($data->nilai_akhir, 2) . '%' }}</td>
-            </tr>
-        </table>
-        <table class="tb-gejala">
-            <tr class="tabletitle">
-                <th>
-                    <h2>Informasi Penyakit {{ $data->desease->nama_penyakit }}</h2>
-                </th>
-            </tr>
-            <tr class="service">
-                <td style="padding: 1em" style="text-align: left" class="tableitem">{!! $data->desease->detail_penyakit !!}</td>
-            </tr>
-
-        </table>
-        {{-- <table class="tb-gejala">
-            <tr class="tabletitle">
-                <th>
-                    <h2>Solusi Penyakit {{ $data->desease->nama_penyakit }}</h2>
-                </th>
-            </tr>
-            <tr class="service">
-                <td style="padding: 1em" class="tableitem">{!! $data->desease->solusi_penyakit !!}</td>
-            </tr>
-        </table> --}}
-        <hr class="solid">
-        <p>Adapun penyakit lain yang mungkin anda alami :
-        </p>
-        <table class="tb-gejala">
-            <tr class="tabletitle">
-                <th class="item">
-                    <h2>No</h2>
-                </th>
-                <th class="Hours">
-                    <h2>Nama Penyakit</h2>
-                </th>
-                <th class="Rate">
-                    <h2>Nilai Keyakinan</h2>
-                </th>
-            </tr>
-            <?php $i = 1; ?>
-            @foreach (json_decode($data->hasil) as $penyakit)
-                @if ($penyakit->kode_penyakit !== $data->desease->kode_penyakit && $penyakit->nilai > 0)
-                    <tr class="service">
-                        <td class="tableitem">{{ $i++ }}</td>
-                        <td class="tableitem">{{ $penyakit->nama_penyakit }}</td>
-                        <td class="tableitem">{{ number_format($penyakit->nilai, 2) . '%' }}</td>
-
-                    </tr>
-                @endif
-            @endforeach
-
-
-
-        </table>
     </div>
-</body>
-
-</html>
+@endsection

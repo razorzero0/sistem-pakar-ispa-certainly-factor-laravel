@@ -26,6 +26,8 @@
     <link rel="stylesheet" type="text/css"
         href={{ asset('assets/src/plugins/datatables/css/responsive.bootstrap4.min.css') }} /> --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" />
+    <!-- DataTables Responsive CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href={{ asset('assets/vendors/styles/style.css') }} />
     <link rel="stylesheet" type="text/css" href={{ asset('assets/css/custom.css') }} />
 
@@ -80,17 +82,69 @@
     <script src={{ asset('assets/src/plugins/datatables/js/responsive.bootstrap4.min.js') }}></script> --}}
     {{-- <script src={{ asset('assets/vendors/scripts/dashboard3.js') }}></script> --}}
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <!-- DataTables Responsive JS -->
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
     {{-- <script src={{ asset('assets/src/plugins/ion-rangeslider/js/ion.rangeSlider.min.js') }}></script>
     <script src={{ asset('assets/vendors/scripts/range-slider-setting.js') }}></script> --}}
     @stack('scripts')
     <script>
-        new DataTable("#myTable");
-        // new DataTable('#myTable2');
-
+        new DataTable('#myTable', {
+            lengthMenu: [10, 25, 50, 75, 100],
+            responsive: true
+        });
 
         new DataTable('#myTable2', {
             lengthMenu: [10, 25, 50, 75, 100],
-            pageLength: 50
+            pageLength: 100,
+            responsive: true
+
+        });
+        new DataTable('#myTable3', {
+            lengthMenu: [10, 25, 50, 75, 100],
+            pageLength: 100,
+            responsive: true,
+            columnDefs: [{
+                    targets: 2, // Kolom pertama
+                    responsivePriority: 1 // Prioritas lebih tinggi
+                },
+                {
+                    targets: 3, // Kolom kedua
+                    responsivePriority: 2 // Prioritas lebih tinggi dari default
+                },
+                {
+                    targets: 5, // Kolom ketiga
+                    responsivePriority: 3 // Default prioritas
+                },
+                {
+                    targets: 4, // Kolom keempat
+                    responsivePriority: 10002 // Prioritas lebih rendah (akan tersembunyi lebih awal)
+                }
+
+            ]
+
+        });
+        new DataTable('#myTable4', {
+
+            responsive: true,
+            columnDefs: [{
+                    targets: 1, // Kolom pertama
+                    responsivePriority: 1 // Prioritas lebih tinggi
+                },
+                {
+                    targets: 3, // Kolom kedua
+                    responsivePriority: 2 // Prioritas lebih tinggi dari default
+                },
+                {
+                    targets: 5, // Kolom ketiga
+                    responsivePriority: 3 // Default prioritas
+                },
+                {
+                    targets: 4, // Kolom keempat
+                    responsivePriority: 10002 // Prioritas lebih rendah (akan tersembunyi lebih awal)
+                }
+
+            ]
+
         });
 
         $(document).ready(function() {
