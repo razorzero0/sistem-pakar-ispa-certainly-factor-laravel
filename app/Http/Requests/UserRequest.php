@@ -29,6 +29,7 @@ class UserRequest extends FormRequest
             case 'POST':
                 return [
                     'name' => ['required', 'string', 'max:255'],
+                    'age' => ['integer'],
                     'address' => ['required', 'string', 'max:255'],
                     'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
                     'password' => ['required', 'confirmed', Rules\Password::defaults()],
@@ -37,6 +38,7 @@ class UserRequest extends FormRequest
             case 'PUT':
                 return [
                     'name' => ['required', 'string', 'max:255'],
+                    'age' => ['integer'],
                     'address' => ['required', 'string', 'max:255'],
                     'email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
                 ];

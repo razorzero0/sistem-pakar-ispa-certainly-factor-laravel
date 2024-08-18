@@ -30,11 +30,8 @@ class  DiagnosisService implements BaseService
             ['nilai' => 0.8, 'deskripsi' => 'Hampir Selalu'],
             ['nilai' => 0.6, 'deskripsi' => 'Sering'],
             ['nilai' => 0.4, 'deskripsi' => 'Kadang-kadang'],
-            // ['nilai' => -0.2, 'deskripsi' => 'Tidak Tahu'],
-            // ['nilai' => -0.4, 'deskripsi' => 'Hampir Jarang'],
-            // ['nilai' => -0.6, 'deskripsi' => 'Jarang'],
-            // ['nilai' => -0.8, 'deskripsi' => 'Hampir Tidak Pernah'],
-            ['nilai' => -1.0, 'deskripsi' => 'Tidak Pernah'],
+            ['nilai' => 0.2, 'deskripsi' => 'Tidak Tahu'],
+            ['nilai' => 0.0, 'deskripsi' => 'Tidak Mengalami'],
         ]);
     }
 
@@ -54,7 +51,7 @@ class  DiagnosisService implements BaseService
     {
         $validated  = $request->validated();
         $validated = $request->safe()
-            ->only(['nama_pengguna', 'kode_pengguna', 'alamat_pengguna', 'cf']);
+            ->only(['nama_pengguna', 'age', 'kode_pengguna', 'alamat_pengguna', 'cf']);
         $kondisi = collect([]);
         foreach ($validated['cf'] as $g) {
             if ($g) {
@@ -71,6 +68,7 @@ class  DiagnosisService implements BaseService
         $stmt = $cf->proccess();
         if ($stmt['kode_penyakit']) {
             $stmt += ['nama_pengguna' => $validated['nama_pengguna']];
+            $stmt += ['age' => $validated['age']];
             $stmt += ['kode_pengguna' => $validated['kode_pengguna']];
             $stmt += ['alamat_pengguna' => $validated['alamat_pengguna']];
             return $this->model->create($stmt);

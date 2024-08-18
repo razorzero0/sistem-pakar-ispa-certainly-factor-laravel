@@ -7,7 +7,7 @@ use App\Repositories\Desease\DeseaseInterface;
 use Illuminate\Database\Eloquent\Collection;
 
 
-class DeseaseRepository implements DeseaseInterface
+class DeseaseRepository
 {
 
     public function __construct(private Desease $model)

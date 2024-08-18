@@ -9,9 +9,7 @@ use App\Services\Base\BaseService;
 class  UserService implements BaseService
 {
 
-    public function __construct(private UserRepository $model)
-    {
-    }
+    public function __construct(private UserRepository $model) {}
 
     public function  getAll()
     {
@@ -19,14 +17,12 @@ class  UserService implements BaseService
 
         return ['data' => $data];
     }
-    public function  create()
-    {
-    }
+    public function  create() {}
     public function store($request)
     {
         $validated  = $request->validated();
         $validated = $request->safe()
-            ->only(['name', 'email', 'address', 'password', 'password_confirmation']);
+            ->only(['name', 'age', 'email', 'address', 'password', 'password_confirmation']);
 
         return $this->model->create($validated);
     }
@@ -41,7 +37,7 @@ class  UserService implements BaseService
     {
         $validated  = $request->validated();
         $validated = $request->safe()
-            ->only(['name', 'email', 'address']);
+            ->only(['name', 'age', 'email', 'address']);
 
         return $this->model->update($validated, $id);
     }

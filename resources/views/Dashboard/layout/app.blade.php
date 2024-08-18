@@ -7,9 +7,9 @@
     <title>Sistem Pendukung Keputusan ISPA (Infeksi Saluran Pernapasan Akut)</title>
 
     <!-- Site favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href={{ asset('assets/vendors/images/favicon.png') }} />
-    <link rel="icon" type="image/png" sizes="32x32" href={{ asset('assets/vendors/images/favicon.png') }} />
-    <link rel="icon" type="image/png" sizes="16x16" href={{ asset('assets/vendors/images/favicon.png') }} />
+    <link rel="apple-touch-icon" sizes="180x180" href={{ asset('assets/vendors/images/logo-uniska.png') }} />
+    <link rel="icon" type="image/png" sizes="32x32" href={{ asset('assets/vendors/images/logo-uniska.png') }} />
+    <link rel="icon" type="image/png" sizes="16x16" href={{ asset('assets/vendors/images/logo-uniska.png') }} />
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -67,8 +67,15 @@
     <!-- Main Content start -->
     <div class="main-container">
         @yield('content')
+        <div class="mb-2 text-center footer-wrap pd-20 card-box">
+            Copyright &copy; 2024 <a href="https://ft.uniska-kediri.ac.id/" target="_blank">Fakultas Teknik - Prodi
+                Teknik
+                Komputer Universitas Islam Kadiri Kediri</a>
+        </div>
     </div>
     <!-- Main Content end -->
+
+
 
     <!-- js -->
     <script src={{ asset('assets/vendors/scripts/core.js') }}></script>

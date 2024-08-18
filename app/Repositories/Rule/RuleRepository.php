@@ -7,7 +7,7 @@ use App\Repositories\Rule\RuleInterface;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 
-class RuleRepository implements RuleInterface
+class RuleRepository
 {
 
     public function __construct(private Rule $model)

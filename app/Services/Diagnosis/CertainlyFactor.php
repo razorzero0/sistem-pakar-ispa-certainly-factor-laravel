@@ -44,12 +44,12 @@ class CertainlyFactor
             if ($cfLama <= 0) {
                 $cfLama = $tempCf;
             } else {
-                if ($cfLama && $tempCf) {
+                if ($cfLama > 0 && $tempCf > 0) {
                     $cfLama = $cfLama + $tempCf * (1 - $cfLama);
-                } elseif ($cfLama || $tempCf) {
-                    $cfLama = ($cfLama + $tempCf) / min(abs($cfLama), abs($tempCf));
-                } else {
+                } elseif ($cfLama <= 0 && $tempCf <= 0) {
                     $cfLama = $cfLama + $tempCf * (1 + $cfLama);
+                } else {
+                    $cfLama = ($cfLama + $tempCf) / (1 - min(abs($cfLama), abs($tempCf)));
                 }
             }
             $cfFinal->push($cfLama * 100);
@@ -74,7 +74,9 @@ class CertainlyFactor
         $max = $this->getMax($r);
         // return $cfFinal;
         return [
-            'kode_penyakit' => $max[0], 'nilai_akhir' => $max[1], 'hasil' => json_encode($r),
+            'kode_penyakit' => $max[0],
+            'nilai_akhir' => $max[1],
+            'hasil' => json_encode($r),
             'gejala' => json_encode($this->kondisi)
         ];
     }

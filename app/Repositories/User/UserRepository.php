@@ -7,7 +7,7 @@ use App\Repositories\User\UserInterface;
 use Illuminate\Database\Eloquent\Collection;
 use Spatie\Permission\Models\Role;
 
-class UserRepository implements UserInterface
+class UserRepository
 {
 
     public function __construct(private User $model)
@@ -34,6 +34,7 @@ class UserRepository implements UserInterface
     {
         $data =  $this->model->find($id);
         $data->name = $request['name'];
+        $data->age = $request['age'];
         $data->email = $request['email'];
         $data->address = $request['address'];
         return  $data->save();

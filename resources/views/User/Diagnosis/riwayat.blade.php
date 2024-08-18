@@ -59,6 +59,7 @@
                         <th scope="col" style="width: 3rem">No</th>
                         <th scope="col">Tanggal diagnosa</th>
                         <th scope="col">Nama Pengguna</th>
+                        <th scope="col">Umur</th>
                         <th scope="col">Diagnosa Penyakit</th>
                         <th scope="col">Nilai Keyakinan</th>
                         <th scope="col">Detail</th>
@@ -74,6 +75,7 @@
                                 <th scope="row">{{ $i++ }}</th>
                                 <td>{{ substr($diagnosis->created_at, 0, 10) }}</td>
                                 <td scope="col" data-priority="1">{{ $diagnosis->nama_pengguna }}</td>
+                                <td scope="col">{{ $diagnosis->age }} thn</td>
                                 <td>{{ $diagnosis->desease->nama_penyakit }}</td>
                                 <td>{{ number_format($diagnosis->nilai_akhir, 2) . '%' }}
                                 </td>

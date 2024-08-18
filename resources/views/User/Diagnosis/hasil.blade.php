@@ -27,7 +27,7 @@
             line-height: 1.2em;
         }
 
-        #invoice {
+        #wrapper {
 
             background: #FFF;
         }
@@ -38,7 +38,7 @@
 
         }
 
-        [id='invoice'] {
+        [id='wrapper'] {
             /* Targets all id with 'col-' */
             border-bottom: 1px solid #EEE;
             /* padding: 30px; */
@@ -139,6 +139,14 @@
             border-radius: 5px;
             margin-top: 20px;
         }
+
+        .identitas-pasien {
+            margin-top: 0;
+        }
+
+        .identitas-pasien td {
+            text-align: left;
+        }
     </style>
     <div class="xs-pd-10-1 pd-ltr-10">
         <div class="page-header">
@@ -178,14 +186,19 @@
                 </div>
             </div>
 
-            <div id="invoice">
+            <div id="wrapper">
 
-                <table style="margin-top: 0">
+                <table class="identitas-pasien">
                     <tr>
                         <td>Tanggal Konsultasi</td>
-                        <td> : {{ substr($data->created_at, 0, 10) }}</td>
+                        <td>&nbsp;:&nbsp;{{ substr($data->created_at, 0, 10) }}</td>
+                    </tr>
+                    <tr>
+                        <td>Umur</td>
+                        <td>&nbsp;:&nbsp;{{ $data->age }} tahun</td>
                     </tr>
                 </table>
+
 
                 {{-- <strong>Gejala yang Anda Alami :</strong> --}}
                 <table class="tb-gejala">
@@ -286,7 +299,8 @@
 
                 </table>
                 <p class="disclaimer">
-                    <b>Disclaimer:</b> Hasil dari sistem SPK ini bukan merupakan keputusan final. Diperlukan pemeriksaan dan
+                    <b>Disclaimer:</b> Hasil dari Sistem Pendukung Keputusan ini bukan merupakan keputusan final. Diperlukan
+                    pemeriksaan dan
                     uji
                     laboratorium oleh tenaga medis atau dokter untuk verifikasi lebih lanjut.
                 </p>

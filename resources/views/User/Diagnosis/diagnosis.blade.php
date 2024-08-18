@@ -62,6 +62,14 @@
                 </div>
             </div>
             <div class="my-3 form-group row">
+                <label class=" col-md-2 col-4 col-form-label">Umur :</label>
+                <div class=" col-md-10 col-8">
+                    <input class="form-control" @if (Auth::user()->hasRole('user')) readonly @endif value="0"
+                        type="number" name="age" placeholder="masukkan umur">
+                </div>
+            </div>
+
+            <div class="my-3 form-group row">
                 <label class=" col-md-2 col-4 col-form-label">Alamat :</label>
                 <div class=" col-md-10 col-8">
                     <input class="form-control" @if (Auth::user()->hasRole('user')) readonly @endif
@@ -74,7 +82,7 @@
                     <tr>
                         <th scope="col" style="width: 1rem">No</th>
                         {{-- <th scope="col">Kode</th> --}}
-                        <th scope="col">Nama</th>
+                        <th scope="col">Nama Gejala</th>
                         <th scope="col">Kondisi</th>
                     </tr>
                 </thead>

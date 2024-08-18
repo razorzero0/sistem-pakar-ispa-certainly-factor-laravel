@@ -51,6 +51,20 @@
                 </div>
             </div>
             <div class="form-group row">
+                <label class="col-sm-12 col-md-2 col-form-label">Umur</label>
+                <div class="col-sm-12 col-md-10">
+                    <input class="form-control" value="{{ old('age') }}" type="text" placeholder="Masukkan Umur"
+                        name="age">
+                    @if ($errors->get('age'))
+                        <div class="mt-1 alert alert-danger">
+                            @foreach ($errors->get('age') as $error)
+                                <li>{{ $error }}
+                            @endforeach
+                        </div>
+                    @endif
+                </div>
+            </div>
+            <div class="form-group row">
                 <label class="col-sm-12 col-md-2 col-form-label">Email</label>
                 <div class="col-sm-12 col-md-10">
                     <input class="form-control" value="{{ old('email') }}" type="email" placeholder="Masukkan Email"

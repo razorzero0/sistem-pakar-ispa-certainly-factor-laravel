@@ -13,7 +13,7 @@ class Diagnosis extends Model
     use HasFactory, UniqueId;
     public $incrementing = false;
     protected $primaryKey = 'diagnosis_id';
-    protected $fillable = ['kode_penyakit', 'nama_pengguna', 'kode_pengguna', 'alamat_pengguna', 'nilai_akhir', 'hasil', 'gejala'];
+    protected $fillable = ['kode_penyakit', 'age', 'nama_pengguna', 'kode_pengguna', 'alamat_pengguna', 'nilai_akhir', 'hasil', 'gejala'];
 
     public function desease(): HasOne
     {

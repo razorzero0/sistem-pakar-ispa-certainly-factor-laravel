@@ -7,7 +7,7 @@ use App\Repositories\Indication\indicationInterface;
 use Illuminate\Database\Eloquent\Collection;
 
 
-class IndicationRepository implements indicationInterface
+class IndicationRepository
 {
 
     public function __construct(private Indication $model)

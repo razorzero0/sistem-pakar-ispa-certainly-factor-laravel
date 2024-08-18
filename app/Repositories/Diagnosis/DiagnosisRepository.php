@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 use App\Models\Rule;
 
-class DiagnosisRepository implements DiagnosisInterface
+class DiagnosisRepository
 {
 
     public function __construct(private Diagnosis $model, private Rule $rule)
@@ -16,21 +16,35 @@ class DiagnosisRepository implements DiagnosisInterface
         $this->model = $model;
     }
 
+    // public function all()
+    // {
+    //     $chart = $this->model
+    //         ->join('deseases', 'diagnoses.kode_penyakit', '=', 'deseases.kode_penyakit')
+    //         ->groupBy('diagnoses.kode_penyakit')
+    //         ->pluck('deseases.nama_penyakit')
+    //         ->mapWithKeys(function ($nama_penyakit) {
+    //             return [$nama_penyakit => $this->model->whereHas('desease', function ($query) use ($nama_penyakit) {
+    //                 $query->where('nama_penyakit', $nama_penyakit);
+    //             })->count()];
+    //         });
+    //     $data = $this->model->oldest()->get();
+    //     // $data = $this->model->all();
+    //     // $data = $this->model->orderBy('nama_pengguna')->get();
+
+
+    //     return ['data' => $data, 'chart' => $chart];
+    // }
     public function all()
     {
+        // Menggunakan pluck dan groupBy dengan sesuai dengan mode ONLY_FULL_GROUP_BY
         $chart = $this->model
             ->join('deseases', 'diagnoses.kode_penyakit', '=', 'deseases.kode_penyakit')
-            ->groupBy('diagnoses.kode_penyakit')
-            ->pluck('deseases.nama_penyakit')
-            ->mapWithKeys(function ($nama_penyakit) {
-                return [$nama_penyakit => $this->model->whereHas('desease', function ($query) use ($nama_penyakit) {
-                    $query->where('nama_penyakit', $nama_penyakit);
-                })->count()];
-            });
-        $data = $this->model->oldest()->get();
-        // $data = $this->model->all();
-        // $data = $this->model->orderBy('nama_pengguna')->get();
+            ->select('deseases.nama_penyakit', DB::raw('count(*) as total'))
+            ->groupBy('deseases.nama_penyakit')
+            ->pluck('total', 'deseases.nama_penyakit');
 
+        // Mendapatkan data terbaru
+        $data = $this->model->latest()->get();
 
         return ['data' => $data, 'chart' => $chart];
     }

@@ -6,14 +6,14 @@ use App\Http\Requests\DiagnosisRequest;
 use App\Models\Diagnosis;
 use App\Services\Diagnosis\DiagnosisService;
 use Illuminate\Http\Request;
-use Barryvdh\DomPDF\Facade\Pdf;
+// use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class DiagnosisController extends Controller
 {
-    public function __construct(private DiagnosisService $service)
-    {
-    }
+    public function __construct(private DiagnosisService $service) {}
 
     /**
      * Display a listing of the resource.
@@ -69,20 +69,51 @@ class DiagnosisController extends Controller
         return view('User.Diagnosis.riwayat', $this->service->getAll());
     }
 
+    // public function cetak($id)
+    // {
+    //     // dd($id);
+    //     $data = $this->service->find($id);
+    //     if ($data) {
+    //         $pdf = PDF::loadView('User.Diagnosis.cetak', $data);
+    //         $filename = $data['data']->nama_pengguna . "_" . substr($data['data']->created_at, 0, 10) . ".pdf";
+    //         if (Auth::user()->roles[0]->name == 'admin' || $data['data']->kode_pengguna == Auth::user()->id) {
+    //             return $pdf->stream($filename);
+    //         }
+    //     }
+    //     return view('User.Diagnosis.riwayat', $this->service->getAll());
+    // }
+
+
     public function cetak($id)
     {
-        // dd($id);
+        // Ambil data diagnosis berdasarkan ID
         $data = $this->service->find($id);
         if ($data) {
-            $pdf = PDF::loadView('User.Diagnosis.cetak', $data);
+            // Load view dan convert ke HTML
+            $html = view('User.Diagnosis.cetak', $data)->render();
+
+            // Konfigurasi Dompdf
+            $options = new Options();
+            $options->set('isHtml5ParserEnabled', true);
+            $options->set('isRemoteEnabled', true);
+
+            $dompdf = new Dompdf($options);
+            $dompdf->loadHtml($html);
+            $dompdf->setPaper('A4', 'portrait');
+            $dompdf->render();
+
+            // Nama file PDF
             $filename = $data['data']->nama_pengguna . "_" . substr($data['data']->created_at, 0, 10) . ".pdf";
+
+            // Stream PDF jika user adalah admin atau pemilik data
             if (Auth::user()->roles[0]->name == 'admin' || $data['data']->kode_pengguna == Auth::user()->id) {
-                return $pdf->stream($filename);
+                return $dompdf->stream($filename, ["Attachment" => false]);
+            } else {
+                return view('User.Diagnosis.riwayat', $this->service->getAll());
             }
         }
         return view('User.Diagnosis.riwayat', $this->service->getAll());
     }
-
     /**
      * Show the form for editing the specified resource.
      */

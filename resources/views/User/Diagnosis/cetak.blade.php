@@ -3,6 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- Site favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href={{ asset('assets/vendors/images/logo-uniska.png') }} />
+    <link rel="icon" type="image/png" sizes="32x32" href={{ asset('assets/vendors/images/logo-uniska.png') }} />
+    <link rel="icon" type="image/png" sizes="16x16" href={{ asset('assets/vendors/images/logo-uniska.png') }} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Font Awesome -->
@@ -38,7 +42,7 @@
             line-height: 1.2em;
         }
 
-        #invoice {
+        #wrapper {
 
             background: #FFF;
         }
@@ -49,7 +53,7 @@
 
         }
 
-        [id='invoice'] {
+        [id='wrapper'] {
             /* Targets all id with 'col-' */
             border-bottom: 1px solid #EEE;
             padding: 30px;
@@ -142,20 +146,32 @@
             border-radius: 5px;
             margin-top: 20px;
         }
+
+        .identitas-pasien {
+            margin-top: 0;
+        }
+
+        .identitas-pasien td {
+            text-align: left;
+        }
     </style>
     <title>{{ $data->nama_pengguna }}_{{ substr($data->created_at, 0, 10) }}</title>
 </head>
 
 <body>
-    <div id="invoice">
+    <div id="wrapper">
         <div class="header">
             {{-- <h1>HASIL DIAGNOSA : {{ $data->user->name }} ({{ $data->user->address }})</h1> --}}
             <h1>HASIL DIAGNOSA : {{ $data->nama_pengguna }} ({{ $data->user->address }})</h1>
         </div>
-        <table style="margin-top: 0">
+        <table class="identitas-pasien">
             <tr>
                 <td>Tanggal Konsultasi</td>
-                <td> : {{ substr($data->created_at, 0, 10) }}</td>
+                <td>&nbsp;:&nbsp;{{ substr($data->created_at, 0, 10) }}</td>
+            </tr>
+            <tr>
+                <td>Umur</td>
+                <td>&nbsp;:&nbsp;{{ $data->age }} tahun</td>
             </tr>
         </table>
 
@@ -257,7 +273,8 @@
 
         </table>
         <p class="disclaimer">
-            <b>Disclaimer:</b> Hasil dari sistem SPK ini bukan merupakan keputusan final. Diperlukan pemeriksaan dan uji
+            <b>Disclaimer:</b> Hasil dari Sistem Pendukung Keputusan ini bukan merupakan keputusan final. Diperlukan
+            pemeriksaan dan uji
             laboratorium oleh tenaga medis atau dokter untuk verifikasi lebih lanjut.
         </p>
     </div>
