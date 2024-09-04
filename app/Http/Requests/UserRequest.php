@@ -29,7 +29,8 @@ class UserRequest extends FormRequest
             case 'POST':
                 return [
                     'name' => ['required', 'string', 'max:255'],
-                    'age' => ['integer'],
+                    'age' => ['required', 'integer'],
+                    'number' => ['required', 'string', 'min:10', 'max:15', 'regex:/^[0-9]+$/', Rule::unique(User::class)],
                     'address' => ['required', 'string', 'max:255'],
                     'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
                     'password' => ['required', 'confirmed', Rules\Password::defaults()],
@@ -38,17 +39,12 @@ class UserRequest extends FormRequest
             case 'PUT':
                 return [
                     'name' => ['required', 'string', 'max:255'],
-                    'age' => ['integer'],
+                    'age' => ['required', 'integer'],
+                    'number' => ['required', 'string', 'min:10', 'max:15', 'regex:/^[0-9]+$/', Rule::unique(User::class)->ignore($this->input('id'))],
                     'address' => ['required', 'string', 'max:255'],
                     'email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
                 ];
                 break;
         }
-        // return [
-        //     'name' => ['required', 'string', 'max:255'],
-        //     'address' => ['required', 'string', 'max:255'],
-        //     'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
-        //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        // ];
     }
 }

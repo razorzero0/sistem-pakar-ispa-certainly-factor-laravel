@@ -34,6 +34,7 @@ class UserRepository
     {
         $data =  $this->model->find($id);
         $data->name = $request['name'];
+        $data->number = $request['number'];
         $data->age = $request['age'];
         $data->email = $request['email'];
         $data->address = $request['address'];

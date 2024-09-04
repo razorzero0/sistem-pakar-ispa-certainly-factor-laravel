@@ -7,9 +7,9 @@
     <title>Sistem Pendukung Keputusan ISPA (Infeksi Saluran Pernapasan Akut)</title>
 
     <!-- Site favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href={{ asset('assets/vendors/images/logo-uniska.png') }} />
-    <link rel="icon" type="image/png" sizes="32x32" href={{ asset('assets/vendors/images/logo-uniska.png') }} />
-    <link rel="icon" type="image/png" sizes="16x16" href={{ asset('assets/vendors/images/logo-uniska.png') }} />
+    <link rel="apple-touch-icon" sizes="180x180" href={{ asset('assets/vendors/images/uniska.png') }} />
+    <link rel="icon" type="image/png" sizes="32x32" href={{ asset('assets/vendors/images/uniska.png') }} />
+    <link rel="icon" type="image/png" sizes="16x16" href={{ asset('assets/vendors/images/uniska.png') }} />
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -28,9 +28,12 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" />
     <!-- DataTables Responsive CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css">
+    <!-- INTRO JS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js@7.2.0/minified/introjs.min.css" />
     <link rel="stylesheet" type="text/css" href={{ asset('assets/vendors/styles/style.css') }} />
     <link rel="stylesheet" type="text/css" href={{ asset('assets/css/custom.css') }} />
-
+    <!-- LOTIE FILES -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     {{-- <link rel="stylesheet" type="text/css"
         href={{ asset('assets/src/plugins/ion-rangeslider/css/ion.rangeSlider.css') }} /> --}}
     @stack('text-editor')
@@ -38,6 +41,7 @@
 </head>
 
 <body>
+    @stack('chatbot')
     {{-- <div class="pre-loader">
         <div class="pre-loader-box">
             <div class="loader-logo">
@@ -68,10 +72,13 @@
     <div class="main-container">
         @yield('content')
         <div class="mb-2 text-center footer-wrap pd-20 card-box">
-            Copyright &copy; 2024 <a href="https://ft.uniska-kediri.ac.id/" target="_blank">Fakultas Teknik - Prodi
-                Teknik
-                Komputer Universitas Islam Kadiri Kediri</a>
+            Copyright &copy; 2024
+            <a href="https://ft.uniska-kediri.ac.id/" style="color: black; text-decoration: none; font-weight: bold;"
+                target="_blank">
+                Fakultas Teknik - Prodi Teknik Komputer Universitas Islam Kadiri Kediri
+            </a>
         </div>
+
     </div>
     <!-- Main Content end -->
 
@@ -93,6 +100,9 @@
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
     {{-- <script src={{ asset('assets/src/plugins/ion-rangeslider/js/ion.rangeSlider.min.js') }}></script>
     <script src={{ asset('assets/vendors/scripts/range-slider-setting.js') }}></script> --}}
+
+    <!-- INTRO JS-->
+    <script src="https://cdn.jsdelivr.net/npm/intro.js@7.2.0/intro.min.js"></script>
     @stack('scripts')
     <script>
         new DataTable('#myTable', {
@@ -103,7 +113,8 @@
         new DataTable('#myTable2', {
             lengthMenu: [10, 25, 50, 75, 100],
             pageLength: 100,
-            responsive: true
+            responsive: true,
+            searching: false
 
         });
         new DataTable('#myTable3', {

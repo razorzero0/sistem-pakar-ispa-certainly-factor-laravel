@@ -60,7 +60,7 @@
         <div class="mb-20">
             <div class="card-box ">
 
-                <div id="carouselExampleControls" class=" carousel slide" data-ride="carousel">
+                {{-- <div id="carouselExampleControls" class=" carousel slide" data-ride="carousel">
                     <div class="carousel-inner" style="border-radius: 8px">
                         <div class="carousel-item active">
                             <img class="d-block w-100" src={{ asset('assets/src/images/1.png') }} alt="First slide">
@@ -80,51 +80,61 @@
                         </a>
                     </div>
 
+                </div> --}}
+                <div>
+                    <img src={{ asset('assets/vendors/images/banner.png') }} />
                 </div>
-                <p class="p-3" style="text-align: center;">Selamat datang di <strong>Aplikasi
-                        Sistem Pendukung Keputusan Diagnosa Penyakit Infeksi Saluran Pernapasan Akut (ISPA)</strong>! Kami
+                <p class="p-3" style="text-align: center;">Selamat datang di <strong>Sistem Informasi Penyakit dan
+                        Deteksi ISPA Klinis (SIPDIK)</strong>! Kami
                     hadir untuk
                     memberikan bantuan dalam
-                    mengidentifikasi dan mengelola penyakit ISPA dengan cepat dan akurat. Mari bersama-sama menjaga
-                    kesehatan dan meningkatkan kesadaran kita akan pentingnya menyadari secara dini
-                    penyakit ini.<br /> <strong style="font-size:1.3rem">Selamat menggunakan aplikasi
-                        kami!</strong></p>
+                    mengidentifikasi dan mengelola penyakit ISPA. Mari bersama-sama menjaga
+                    kesehatan dan meningkatkan kesadaran kita mengenai
+                    penyakit ini.</p>
+                @role('user')
+                    <div class="flex justify-center pt-2 pb-4 text-center " style="margin-top: -1rem">
+                        <a href={{ route('diagnosis.index') }} class="text-white btn btn-info ">
+                            Cek Kondisi Anda Sekarang!
+                        </a>
+                    </div>
+                @endrole
 
             </div>
-            {{-- <div class="mb-2 col-md-8">
-                <div class="card-box height-100-p pd-20">
-                    <div class="flex-wrap pb-0 d-flex justify-content-between align-items-center pb-md-3">
-                        <div class="h5 mb-md-0">Aktifitas Terbaru</div>
-                        <div class="form-group mb-md-0">
-                            <select class="form-control form-control-sm selectpicker">
-                                <option value="">Last Week</option>
-                                <option value="">Last Month</option>
-                                <option value="">Last 6 Month</option>
-                                <option value="">Last 1 year</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div id="activities-chart"></div>
-                </div>
-            </div>
-            <div class="mb-2 col-md-4">
-                <div class="card-box height-100-p pd-20 min-height-200px">
-                    <div class="d-flex justify-content-between">
-                        <div class="mb-0 h5">Laporan Penyakit</div>
-                    </div>
 
-                    <div id="diseases-chart"></div>
-                </div>
-            </div> --}}
         </div>
 
-
-
-
-
-
-
-
-
     </div>
+    @push('chatbot')
+        <script src='https://app.wotnot.io/chat-widget/4kHu3dxZFPtH060318126581eukc5jOO.js' defer></script>
+    @endpush
+    @push('scripts')
+        <script>
+            function setCookie(name, value, days) {
+                var expires = "";
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + (value || "") + expires + "; path=/";
+            }
+
+            function getCookie(name) {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
+            }
+
+            // Mengubah nilai cookie "introjs-dontShowAgain" menjadi false
+            setCookie("introjs-dontShowAgain", "false", 7); // 7 di sini berarti cookie akan bertahan 7 hari
+
+            // Memastikan nilai cookie telah diubah
+            console.log(getCookie("introjs-dontShowAgain")); // Harusnya mengembalikan "false"
+        </script>
+    @endpush
 @endsection

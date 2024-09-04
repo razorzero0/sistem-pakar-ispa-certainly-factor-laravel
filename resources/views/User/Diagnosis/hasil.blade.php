@@ -158,7 +158,7 @@
                     <nav aria-label="breadcrumb" role="navigation">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="index.html">Home</a>
+                                <a href={{ route('dashboard') }}>Home</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 Hasil Diagnosis
@@ -299,7 +299,7 @@
 
                 </table>
                 <p class="disclaimer">
-                    <b>Disclaimer:</b> Hasil dari Sistem Pendukung Keputusan ini bukan merupakan keputusan final. Diperlukan
+                    <b>Disclaimer:</b> Hasil dari Sistem ini bukan merupakan keputusan final. Diperlukan
                     pemeriksaan dan
                     uji
                     laboratorium oleh tenaga medis atau dokter untuk verifikasi lebih lanjut.

@@ -11,7 +11,6 @@ class CertainlyFactor
         $this->rule = $rule;
         $this->kondisi = $kondisi;
     }
-
     private function getKondisi()
     {
         $arkondisi = collect([]);
@@ -38,7 +37,6 @@ class CertainlyFactor
                 $cfLama = 0;
             }
             //CF Combine 
-
             $tempCf = $p['cf_pakar'] * $this->kondisi->where('kode_gejala', $p->indication->kode_gejala)->pluck('nilai_cf')->first();
 
             if ($cfLama <= 0) {
@@ -55,11 +53,8 @@ class CertainlyFactor
             $cfFinal->push($cfLama * 100);
             $i++;
         }
-
-
         $r = [];
         $index = -1; // Inisialisasi indeks
-
         foreach ($cfFinal as $item) {
             if (is_string($item)) {
                 $index++;
@@ -70,7 +65,6 @@ class CertainlyFactor
                 $r[$index]['nilai'] = doubleval($item); // Simpan 'nilai'
             }
         }
-
         $max = $this->getMax($r);
         // return $cfFinal;
         return [
@@ -80,7 +74,6 @@ class CertainlyFactor
             'gejala' => json_encode($this->kondisi)
         ];
     }
-
     public function getMax($r)
     {
         $nama = "";

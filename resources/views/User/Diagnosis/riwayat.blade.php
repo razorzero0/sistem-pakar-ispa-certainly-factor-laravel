@@ -11,7 +11,7 @@
                     <nav aria-label="breadcrumb" role="navigation">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="index.html">Home</a>
+                                <a href={{ route('dashboard') }}>Home</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 Riwayat Diagnosis
@@ -37,7 +37,7 @@
                         <form method="POST" action={{ route('diagnosis-deleteAll') }}>
                             @csrf
                             <button onclick="return confirm('apakah yakin?')" type="submit" class="text-white btn btn-danger ">
-                                <i class="bi bi-trash"></i> Reset Data
+                                <i class="bi bi-trash"></i> Hapus Semua
                             </button>
                         </form>
                     </div>
@@ -63,7 +63,7 @@
                         <th scope="col">Diagnosa Penyakit</th>
                         <th scope="col">Nilai Keyakinan</th>
                         <th scope="col">Detail</th>
-                        <th scope="col">Aksi</th>
+                        <th scope="col">Hapus</th>
 
                     </tr>
                 </thead>
@@ -81,8 +81,8 @@
                                 </td>
                                 <td>
                                     <a href="{{ route('diagnosis.show', $diagnosis->diagnosis_id) }}"
-                                        class="text-white btn btn-sm btn-info">
-                                        <i class="bi bi-eye-fill"></i> Lihat
+                                        class="text-white btn  btn-info">
+                                        <i class="bi bi-eye-fill"></i>
                                     </a>
                                     {{-- <a href="{{ route('diagnosis.show', $diagnosis->diagnosis_id) }}">
                                         <i class="bi bi-eye-fill"></i>
@@ -99,7 +99,7 @@
                                             @method('DELETE')
                                             <button onclick="return confirm('apakah yakin?')" type="submit"
                                                 class="text-white btn btn-danger ">
-                                                <i class="bi bi-trash"></i> Hapus
+                                                <i class="bi bi-trash"></i>
                                             </button>
                                         </form>
 

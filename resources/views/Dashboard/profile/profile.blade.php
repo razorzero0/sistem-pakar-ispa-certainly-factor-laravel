@@ -10,7 +10,7 @@
                 <nav aria-label="breadcrumb" role="navigation">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="index.html">Home</a>
+                            <a href={{ route('dashboard') }}>Home</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
                             Profile
@@ -57,7 +57,13 @@
             <div class="form-group row">
                 <label class="col-sm-12 col-md-2 col-form-label">Umur</label>
                 <div class="col-sm-12 col-md-10">
-                    <input class="form-control" type="text" value="{{ $user->age }}" name="age">
+                    <input class="form-control" type="umber" value="{{ $user->age }}" name="age">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-2 col-form-label">Nomer HP</label>
+                <div class="col-sm-12 col-md-10">
+                    <input class="form-control" type="text" value="{{ $user->number }}" name="number">
                 </div>
             </div>
             <div class="form-group row">

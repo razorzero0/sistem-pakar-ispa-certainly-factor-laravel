@@ -140,14 +140,15 @@ function selected($url)
                     </li>
                     <li class="dropdown">
                         <a href="javascript:;" class="dropdown-toggle">
-                            <span class="micon bi bi-clipboard2-pulse-fill"></span><span class="mtext">Diagnosis</span>
+                            <span class="micon bi bi-clipboard2-pulse-fill"></span><span class="mtext">Data
+                                Konsultasi</span>
                         </a>
                         <ul class="submenu">
                             <li><a class="<?= selected('diagnosis') ?>" href={{ route('diagnosis.index') }}>Tambah
                                     Konsultasi</a>
                             </li>
                             <li><a class="<?= selected('riwayat-diagnosis') ?>"
-                                    href={{ route('riwayat-diagnosis') }}>Riwayat Diagnosis</a></li>
+                                    href={{ route('riwayat-diagnosis') }}>Riwayat Konsultasi</a></li>
                         </ul>
                     </li>
                     <li>

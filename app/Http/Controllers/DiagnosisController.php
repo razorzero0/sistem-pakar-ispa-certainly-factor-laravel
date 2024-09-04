@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
+use Illuminate\Support\Facades\Http;
+
 class DiagnosisController extends Controller
 {
     public function __construct(private DiagnosisService $service) {}
@@ -42,15 +44,56 @@ class DiagnosisController extends Controller
 
         $data = $this->service->store($request);
         if ($data) {
-            // $pdf = PDF::loadView('User.Diagnosis.hasil', ['data' => $data]);
-            // $pdf = PDF::loadView('User.Diagnosis.terimakasih', ['data' => $data]);
-            // return $pdf->stream("Hasil-Diagnosa.pdf");
+            // if (Auth::user()->roles[0]->name == 'user') {
+            $this->sendMessage($data, Auth::user()->number);
+            // }
             return redirect(route('diagnosis.show', $data->diagnosis_id));
         } else {
             return redirect()->back()->with('error_gejala', 'Mohon memasukkan Gejala/Kondisi');
         }
-        // dd($data);
     }
+
+    public function sendMessage($data, $target)
+    {
+        // Variabel untuk setiap parameter
+        $redirect = 'https://fonnte.com';
+        $token = '8cjy!9sQ2tzH6XEpFkF2';
+
+        // Membuat URL untuk hasil diagnosis
+        $diagnosisUrl = route('cetak-diagnosis', $data->diagnosis_id);
+
+        // Mengambil tanggal dan waktu saat ini dalam format WIB
+        $dateTime = new \DateTime('now', new \DateTimeZone('Asia/Jakarta'));
+        $formattedDateTime = $dateTime->format('d/m/Y H:i:s');
+
+
+        // Membuat pesan dengan interpolasi variabel yang benar
+        $message = "Hallo *{$data->nama_pengguna}*, \n\n" .
+            "Terima kasih telah menggunakan layanan kami🤗. Berikut informasi mengenai pengecekan kondisi Anda:\n\n" .
+            "Nama: {$data->nama_pengguna}\n" .
+            "Alamat: {$data->alamat_pengguna}\n" .
+            // "Umur: {$data->age} thn\n" .
+            "Tanggal: {$formattedDateTime} WIB \n" .
+            "Detail: {$diagnosisUrl}\n\n" .
+            "Regards,\n*SIPDIK - Sistem Informasi Penyakit dan Deteksi Ispa Klinis*";
+
+        // Encode parameter message
+        $encodedMessage = urlencode($message);
+
+        // Buat URL lengkap dengan parameter yang di-encode
+        $url = "https://api.fonnte.com/send?redirect=" . urlencode($redirect) .
+            "&token=" . urlencode($token) .
+            "&target=" . urlencode($target) .
+            "&message=" . $encodedMessage;
+
+        // Kirim permintaan GET menggunakan Http Client
+        $response = Http::get($url);
+
+        // Kembalikan true jika pesan berhasil dikirim, atau false jika gagal
+        return $response->successful();
+    }
+
+
 
     /**
      * Display the specified resource.
@@ -103,7 +146,7 @@ class DiagnosisController extends Controller
             $dompdf->render();
 
             // Nama file PDF
-            $filename = $data['data']->nama_pengguna . "_" . substr($data['data']->created_at, 0, 10) . ".pdf";
+            $filename = $data['data']->diagnosis_id . ".pdf";
 
             // Stream PDF jika user adalah admin atau pemilik data
             if (Auth::user()->roles[0]->name == 'admin' || $data['data']->kode_pengguna == Auth::user()->id) {

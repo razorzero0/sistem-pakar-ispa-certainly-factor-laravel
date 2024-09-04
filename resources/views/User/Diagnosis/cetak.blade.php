@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <!-- Site favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href={{ asset('assets/vendors/images/logo-uniska.png') }} />
-    <link rel="icon" type="image/png" sizes="32x32" href={{ asset('assets/vendors/images/logo-uniska.png') }} />
-    <link rel="icon" type="image/png" sizes="16x16" href={{ asset('assets/vendors/images/logo-uniska.png') }} />
+    <link rel="apple-touch-icon" sizes="180x180" href={{ asset('assets/vendors/images/uniska.png') }} />
+    <link rel="icon" type="image/png" sizes="32x32" href={{ asset('assets/vendors/images/uniska.png') }} />
+    <link rel="icon" type="image/png" sizes="16x16" href={{ asset('assets/vendors/images/uniska.png') }} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Font Awesome -->
@@ -62,7 +62,7 @@
 
         .tb-gejala {
             width: 100%;
-            margin-top: 30px;
+            margin-top: 10px;
             border-collapse: collapse;
             border: 1px solid #ffdb4a
         }
@@ -123,7 +123,7 @@
         /* Solid border */
         hr.solid {
             /* border-top: 1px solid #d6d6d6; */
-            margin-top: 2rem;
+            margin-top: 1rem;
             margin-bottom: 10px;
             height: 1px;
             border: none;
@@ -131,7 +131,7 @@
         }
 
         p {
-            /* margin-top: 1em */
+            margin-top: 1em
         }
 
         .disclaimer {
@@ -162,7 +162,7 @@
     <div id="wrapper">
         <div class="header">
             {{-- <h1>HASIL DIAGNOSA : {{ $data->user->name }} ({{ $data->user->address }})</h1> --}}
-            <h1>HASIL DIAGNOSA : {{ $data->nama_pengguna }} ({{ $data->user->address }})</h1>
+            <h1>Hasil Diagnosa : {{ $data->nama_pengguna }}</h1>
         </div>
         <table class="identitas-pasien">
             <tr>
@@ -172,6 +172,10 @@
             <tr>
                 <td>Umur</td>
                 <td>&nbsp;:&nbsp;{{ $data->age }} tahun</td>
+            </tr>
+            <tr>
+                <td>Alamat</td>
+                <td>&nbsp;:&nbsp;{{ $data->user->address }}</td>
             </tr>
         </table>
 
@@ -206,7 +210,7 @@
 
         </table>
 
-        <hr class="solid">
+        {{-- <hr class="solid"> --}}
 
         <p>Berdasarkan gejala dan kondisi yang dipilih, kemungkinan anda mengalami :
         </p>
@@ -241,7 +245,7 @@
                 <td style="padding: 1em" class="tableitem">{!! $data->desease->solusi_penyakit !!}</td>
             </tr>
         </table> --}}
-        <hr class="solid">
+        {{-- <hr class="solid"> --}}
         <p>Adapun penyakit lain yang mungkin anda alami :
         </p>
 
@@ -273,7 +277,7 @@
 
         </table>
         <p class="disclaimer">
-            <b>Disclaimer:</b> Hasil dari Sistem Pendukung Keputusan ini bukan merupakan keputusan final. Diperlukan
+            <b>Disclaimer:</b> Hasil dari Sistem ini bukan merupakan keputusan final. Diperlukan
             pemeriksaan dan uji
             laboratorium oleh tenaga medis atau dokter untuk verifikasi lebih lanjut.
         </p>

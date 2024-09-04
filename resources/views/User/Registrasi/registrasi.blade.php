@@ -30,7 +30,11 @@
                         anda</small></p>
 
             </div>
+            <div class="pull-right">
+                <a href="{{ route('login') }}" class="btn btn-info"> Saya sudah punya akun!
+                </a>
 
+            </div>
         </div>
 
 
@@ -58,6 +62,20 @@
                     @if ($errors->get('age'))
                         <div class="mt-1 alert alert-danger">
                             @foreach ($errors->get('age') as $error)
+                                <li>{{ $error }}
+                            @endforeach
+                        </div>
+                    @endif
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-2 col-form-label">Nomer HP</label>
+                <div class="col-sm-12 col-md-10">
+                    <input class="form-control" value="{{ old('number') }}" type="text"
+                        placeholder="Masukkan Nomer HP, contoh:085xxxxxxxxxxxxx" name="number">
+                    @if ($errors->get('number'))
+                        <div class="mt-1 alert alert-danger">
+                            @foreach ($errors->get('number') as $error)
                                 <li>{{ $error }}
                             @endforeach
                         </div>

@@ -29,6 +29,8 @@ class DatabaseSeeder extends Seeder
 
         $admin = User::create([
             'name' => 'admin',
+            'age' => '20',
+            'number' => '085731013100',
             'email' => 'muhainun059@gmail.com',
             'address' => 'Kediri',
             'email_verified_at' => now(),
@@ -38,6 +40,8 @@ class DatabaseSeeder extends Seeder
 
         $user = User::create([
             'name' => 'user',
+            'age' => '20',
+            'number' => '085731013101',
             'email' => 'muhainun058@gmail.com',
             'address' => 'Kediri',
             'email_verified_at' => now(),

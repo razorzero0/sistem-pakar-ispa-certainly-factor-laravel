@@ -27,9 +27,7 @@ class DiagnosisRequest extends FormRequest
             'age' => 'required',
             'kode_pengguna' => 'required',
             'alamat_pengguna' => 'required'
-            // 'nilai_alhir' => 'required',
-            // 'hasil' => 'required',
-            // 'gejala' => 'required'
+
         ];
     }
 }
