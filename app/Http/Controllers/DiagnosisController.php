@@ -57,7 +57,7 @@ class DiagnosisController extends Controller
     {
         // Variabel untuk setiap parameter
         $redirect = 'https://fonnte.com';
-        $token = '8cjy!9sQ2tzH6XEpFkF2';
+        $token = env('FONNTE_TOKEN');
 
         // Membuat URL untuk hasil diagnosis
         $diagnosisUrl = route('cetak-diagnosis', $data->diagnosis_id);

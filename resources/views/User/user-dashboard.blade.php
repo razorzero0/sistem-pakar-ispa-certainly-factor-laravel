@@ -54,5 +54,5 @@
     </div>
 @endsection
 @push('chatbot')
-    <script src='https://app.wotnot.io/chat-widget/4kHu3dxZFPtH060318126581eukc5jOO.js' defer></script>
+    <script src='https://app.wotnot.io/chat-widget/{{ env('WOTNOT_WIDGET_ID') }}.js' defer></script>
 @endpush
