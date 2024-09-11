@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('nama_pengguna');
             $table->integer('age')->default('5');
             $table->bigInteger('kode_pengguna')->unsigned();;
-            $table->foreign('kode_pengguna')->references('id')->on('users');
+            $table->foreign('kode_pengguna')->references('id')->on('users')->onDelete('cascade');
             $table->string('alamat_pengguna');
             $table->string('kode_penyakit');
-            $table->foreign('kode_penyakit')->references('kode_penyakit')->on('deseases');
+            $table->foreign('kode_penyakit')->references('kode_penyakit')->on('deseases')->onDelete('cascade');
             $table->double('nilai_akhir');
             $table->json('hasil');
             $table->json('gejala');

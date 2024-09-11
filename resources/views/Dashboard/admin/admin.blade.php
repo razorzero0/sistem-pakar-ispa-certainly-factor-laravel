@@ -48,7 +48,7 @@
                     <th scope="col">Nama</th>
                     <th scope="col">Email</th>
                     <th scope="col">Alamat</th>
-                    <th scope="col">Role</th>
+                    {{-- <th scope="col">Role</th> --}}
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -61,7 +61,7 @@
                             <td>{{ $admin->name }}</td>
                             <td>{{ $admin->email }}</td>
                             <td>{{ $admin->address }}</td>
-                            <td>{{ $admin->getRoleNames()[0] }}</td>
+                            {{-- <td>{{ $admin->getRoleNames()[0] }}</td> --}}
                             <td>
                                 <div class="flex-wrap d-flex" style="gap:5px;">
 

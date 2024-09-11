@@ -104,10 +104,9 @@ class DiagnosisController extends Controller
         if ($data) {
             // $pdf = PDF::loadView('User.Diagnosis.hasil', $data);
             // $filename = $data['data']->nama_pengguna . "_" . substr($data['data']->created_at, 0, 10) . ".pdf";
-            // if (Auth::user()->roles[0]->name == 'admin' || $data['data']->kode_pengguna == Auth::user()->id) {
-            //     return $pdf->stream($filename);
-            // }
-            return view('User.Diagnosis.hasil', $data);
+            if (Auth::user()->roles[0]->name == 'admin' || $data['data']->kode_pengguna == Auth::user()->id) {
+                return view('User.Diagnosis.hasil', $data);
+            }
         }
         return view('User.Diagnosis.riwayat', $this->service->getAll());
     }
@@ -149,11 +148,11 @@ class DiagnosisController extends Controller
             $filename = $data['data']->diagnosis_id . ".pdf";
 
             // Stream PDF jika user adalah admin atau pemilik data
-            if (Auth::user()->roles[0]->name == 'admin' || $data['data']->kode_pengguna == Auth::user()->id) {
-                return $dompdf->stream($filename, ["Attachment" => false]);
-            } else {
-                return view('User.Diagnosis.riwayat', $this->service->getAll());
-            }
+            // if (Auth::user()->roles[0]->name == 'admin' || $data['data']->kode_pengguna == Auth::user()->id) {
+            return $dompdf->stream($filename, ["Attachment" => false]);
+            // } else {
+            //     return view('User.Diagnosis.riwayat', $this->service->getAll());
+            // }
         }
         return view('User.Diagnosis.riwayat', $this->service->getAll());
     }
