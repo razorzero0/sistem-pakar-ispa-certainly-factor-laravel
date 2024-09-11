@@ -4,7 +4,37 @@
 <head>
     <!-- Basic Page Info -->
     <meta charset="utf-8" />
-    <title>Sistem Pendukung Keputusan ISPA (Infeksi Saluran Pernapasan Akut)</title>
+    <!-- Title -->
+    <title>SIPDIK - Sistem Informasi Penyakit dan Deteksi ISPA Klinis | Cek Gejala ISPA Secara Dini</title>
+
+    <!-- Meta Description -->
+    <meta name="description"
+        content="SIPDIK adalah aplikasi berbasis web yang membantu masyarakat mendeteksi gejala Infeksi Saluran Pernapasan Akut (ISPA) secara dini dan mudah. Akses informasi kesehatan ISPA dan cek kondisi kesehatan Anda dengan mudah melalui sistem ini.">
+
+    <!-- Meta Keywords -->
+    <meta name="keywords"
+        content="SIPDIK, deteksi ISPA, gejala ISPA, kesehatan, infeksi saluran pernapasan, ISPA klinis, cek ISPA, deteksi dini ISPA, kesehatan masyarakat, aplikasi ISPA, cek gejala ISPA, penyakit pernapasan, cek kesehatan online">
+
+    <!-- Meta Author -->
+    <meta name="author" content="SIPDIK Team">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="SIPDIK - Sistem Informasi Penyakit dan Deteksi ISPA Klinis" />
+    <meta property="og:description"
+        content="SIPDIK membantu masyarakat mendeteksi gejala ISPA dengan cepat dan mudah melalui platform berbasis web. Dapatkan informasi kesehatan dan cek gejala Anda sekarang!" />
+    <meta property="og:url" content="https://www.sipdik.online" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://cek-ispa.online/assets/vendors/images/logo.png" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SIPDIK - Sistem Informasi Penyakit dan Deteksi ISPA Klinis">
+    <meta name="twitter:description"
+        content="Aplikasi deteksi dini gejala ISPA berbasis web yang memudahkan masyarakat mendapatkan informasi kesehatan yang akurat.">
+    <meta name="twitter:image" content="https://cek-ispa.online/assets/vendors/images/logo.png">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow">
 
     <!-- Site favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href={{ asset('assets/vendors/images/uniska.png') }} />
