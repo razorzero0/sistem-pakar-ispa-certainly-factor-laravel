@@ -81,8 +81,8 @@
                     </div>
 
                 </div> --}}
-                <div>
-                    <img src={{ asset('assets/vendors/images/banner.png') }} />
+                <div class="w-100">
+                    <img class="d-block w-100" src={{ asset('assets/vendors/images/banner.png') }} />
                 </div>
                 <p class="p-3" style="text-align: center;">Selamat datang di <strong>Sistem Informasi Penyakit dan
                         Deteksi ISPA Klinis (SIPDIK)</strong>! Kami

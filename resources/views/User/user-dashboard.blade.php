@@ -6,7 +6,7 @@
         <div class="mb-20">
             <div class="card-box ">
 
-                <div id="carouselExampleControls" class=" carousel slide" data-ride="carousel">
+                {{-- <div id="carouselExampleControls" class=" carousel slide" data-ride="carousel">
                     <div class="carousel-inner" style="border-radius: 8px">
                         <div class="carousel-item active">
                             <img class="d-block w-100" src={{ asset('assets/src/images/1.png') }} alt="First slide">
@@ -26,6 +26,9 @@
                         </a>
                     </div>
 
+                </div> --}}
+                <div class="w-100">
+                    <img class="d-block w-100" src={{ asset('assets/vendors/images/banner.png') }} />
                 </div>
                 <p class="p-3" style="text-align: center;">Selamat datang di <strong>Sistem Informasi Penyakit dan
                         Deteksi ISPA Klinis (SIPDIK)</strong>! Kami
