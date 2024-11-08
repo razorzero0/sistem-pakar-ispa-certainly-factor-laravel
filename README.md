@@ -5,10 +5,11 @@ SIPDIK adalah aplikasi berbasis web yang membantu masyarakat umum dalam mendetek
 
 Fitur Utama:
 
-Deteksi dini penyakit ISPA berdasarkan gejala yang dimasukkan pengguna.
-Sistem Pendukung Keputusan berbasis metode Certainty Factor untuk menghitung tingkat kepercayaan diagnosa.
-Chatbot interaktif yang membantu pengguna dalam memahami dan menggunakan aplikasi.
-Tujuan: Menyediakan alat bantu sederhana yang berbasis teknologi untuk masyarakat umum dalam mengenali gejala ISPA dengan akurat dan cepat.
+- Deteksi dini penyakit ISPA berdasarkan gejala yang dimasukkan pengguna.
+- Sistem Pendukung Keputusan berbasis metode Certainty Factor untuk menghitung tingkat kepercayaan diagnosa.
+- Chatbot interaktif yang membantu pengguna dalam memahami dan menggunakan aplikasi.
+
+Tujuan: Menyediakan alat bantu sederhana yang berbasis teknologi untuk masyarakat umum dalam mengenali gejala ISPA dengan mandiri, mudah dan cepat.
 
 
 ## Installation
